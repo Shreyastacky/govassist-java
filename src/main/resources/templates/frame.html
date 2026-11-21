@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="head(title)">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#103d32">
+  <title th:text="${title + ' | GovAssist'}">GovAssist</title>
+  <link rel="stylesheet" th:href="@{/portal.css}">
+  <script th:src="@{/portal.js}" defer></script>
+</th:block>
+<header th:fragment="header" class="site-header">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell header-inner">
+    <a th:href="@{/}" class="brand"><span class="brand-icon" aria-hidden="true"></span>GovAssist</a>
+    <nav aria-label="Main navigation">
+      <a th:href="@{/#schemes}">Schemes</a>
+      <a th:href="@{/sources}">Sources</a>
+      <a th:if="${signedIn}" th:href="@{/dashboard}">Dashboard</a>
+      <a th:unless="${signedIn}" th:href="@{/login}">Sign in</a>
+      <form th:if="${signedIn}" th:action="@{/logout}" method="post"><button class="nav-button">Sign out</button></form>
+    </nav>
+  </div>
+</header>
+<footer th:fragment="footer" class="site-footer">
+  <div class="shell footer-inner">
+    <span class="footer-brand">GovAssist</span>
+    <span>Academic project · Preliminary screening based on the cited documents</span>
+  </div>
+</footer>
+</body>
+</html>

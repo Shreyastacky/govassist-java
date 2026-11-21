@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frame :: head(${register ? 'Create an account' : 'Sign in'})}"></head>
+<body>
+<header th:replace="~{frame :: header}"></header>
+<main id="main" class="shell content account-wrap">
+  <section class="account">
+    <h1 th:text="${register ? 'Create an account' : 'Sign in'}"></h1>
+    <p>Save assessments and keep separate answers for each household profile.</p>
+    <p class="notice" th:if="${param.created != null}">Account created. Sign in to continue.</p>
+    <p class="alert" role="alert" th:if="${param.error != null}">The email or password did not match.</p>
+    <p class="alert" role="alert" th:if="${error != null}" th:text="${error}"></p>
+    <form th:action="${register} ? @{/register} : @{/login}" method="post">
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" th:name="${register} ? 'email' : 'username'" type="email" autocomplete="username"
+               th:value="${email}" maxlength="254" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" th:autocomplete="${register} ? 'new-password' : 'current-password'"
+               th:attr="minlength=${register ? 8 : null}" maxlength="72" required>
+        <p th:if="${register}" class="field-help">Use at least eight characters.</p>
+      </div>
+      <button class="button primary" th:text="${register ? 'Create account' : 'Sign in'}"></button>
+    </form>
+    <p class="account-alt" th:if="${register}">Already registered? <a th:href="@{/login}">Sign in</a></p>
+    <p class="account-alt" th:unless="${register}">New here? <a th:href="@{/register}">Create an account</a></p>
+  </section>
+</main>
+<footer th:replace="~{frame :: footer}"></footer>
+</body>
+</html>

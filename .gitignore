@@ -1,0 +1,10 @@
+/target/
+/.work/
+/runtime/
+.idea/
+*.iml
+.vscode/
+~$*
+.env
+*.mv.db
+*.trace.db

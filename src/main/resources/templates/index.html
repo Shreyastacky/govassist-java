@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frame :: head('Scheme finder')}"></head>
+<body>
+<header th:replace="~{frame :: header}"></header>
+<main id="main">
+  <section class="hero">
+    <div class="shell hero-inner">
+      <div class="hero-copy">
+        <p class="kicker">Government scheme finder</p>
+        <h1>Find schemes<br>that fit you.</h1>
+        <p>Answer a few questions to see how your details compare with the criteria in the published guidelines.</p>
+        <a class="button hero-button" th:href="@{/check/all}">Check across schemes <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-aside">
+        <span class="hero-aside-label">How it works</span>
+        <ol>
+          <li><span>01</span> Choose a scheme or compare all eight.</li>
+          <li><span>02</span> Answer what you know. Leave the rest blank.</li>
+          <li><span>03</span> Read the result and the guideline behind it.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <section id="schemes" class="shell catalogue">
+    <div class="section-heading">
+      <div><h2>Browse schemes</h2><p>Choose one scheme to see its questions.</p></div>
+      <form th:action="@{/}" class="search-form" role="search">
+        <label for="q" class="sr-only">Search schemes</label>
+        <input id="q" name="q" type="search" maxlength="100" th:value="${query}" placeholder="Search by name or category">
+        <button class="button outline">Search</button>
+      </form>
+    </div>
+    <p th:if="${!query.isEmpty()}" class="search-summary">
+      <span th:text="${schemes.size() + ' results for “' + query + '”'}"></span>
+      <a th:href="@{/#schemes}">Clear search</a>
+    </p>
+    <div class="scheme-list">
+      <article th:each="scheme : ${schemes}" class="scheme-row">
+        <span class="category" th:text="${scheme.category()}">Pension</span>
+        <div><h3><a th:href="@{/check/{slug}(slug=${scheme.slug()})}" th:text="${scheme.title()}">Scheme</a></h3>
+          <p th:text="${scheme.summary()}"></p></div>
+        <a class="row-link" th:href="@{/check/{slug}(slug=${scheme.slug()})}" th:aria-label="${'Check ' + scheme.title()}">Check scheme <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+    <p th:if="${schemes.isEmpty()}" class="notice">No schemes match that search. Try a name such as Ujjwala or a category such as pension.</p>
+  </section>
+</main>
+<footer th:replace="~{frame :: footer}"></footer>
+</body>
+</html>

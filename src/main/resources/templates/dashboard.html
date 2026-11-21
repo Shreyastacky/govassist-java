@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frame :: head('Dashboard')}"></head>
+<body>
+<header th:replace="~{frame :: header}"></header>
+<main id="main" class="shell content">
+  <div class="page-heading"><p class="kicker">Your account</p><h1>Assessment dashboard</h1>
+    <p>Pick a profile to reuse its answers or open a previous result.</p></div>
+  <div class="dashboard-layout">
+    <section class="dashboard-block">
+      <h2>Applicant profiles</h2>
+      <p class="notice" th:if="${notice != null}" th:text="${notice}" role="status"></p>
+      <p class="alert" th:if="${profileError != null}" th:text="${profileError}" role="alert"></p>
+      <ul class="profile-list">
+        <li th:each="profile : ${profiles}"><strong th:text="${profile.label()}"></strong>
+          <a th:href="@{/check/all(profile=${profile.id()})}">Run check <span aria-hidden="true">→</span></a></li>
+      </ul>
+      <form th:action="@{/dashboard/profiles}" method="post" class="profile-add">
+        <label for="name">New profile name</label>
+        <div class="inline-form"><input id="name" name="name" maxlength="50" placeholder="e.g. Parent" required>
+          <button class="button outline">Add</button></div>
+      </form>
+    </section>
+    <section class="dashboard-block">
+      <h2>Saved assessments</h2>
+      <p th:if="${history.isEmpty()}">Completed signed-in checks appear here.</p>
+      <ol class="history-list">
+        <li th:each="item : ${history}"><div>
+          <a th:href="@{/dashboard/results/{id}(id=${item.id()})}" th:text="${item.title()}"></a>
+          <p th:text="${item.profile() + ' · ' + item.formattedDate()}"></p>
+          </div><span class="status small" th:classappend="${item.verdict().style()}" th:text="${item.verdict().label()}"></span></li>
+      </ol>
+      <a th:if="${nextPage != null}" th:href="@{/dashboard(before=${nextPage})}">Older assessments →</a>
+    </section>
+  </div>
+</main>
+<footer th:replace="~{frame :: footer}"></footer>
+</body>
+</html>

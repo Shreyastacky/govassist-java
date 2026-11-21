@@ -1,0 +1,1831 @@
+{
+  "questions": [
+    {
+      "key": "applicant_type",
+      "ask": "Are you applying for your own business, on your own?",
+      "label": "Applying on your own",
+      "help": "Choose this if the business is yours. Groups, cooperatives and companies apply a different way.",
+      "kind": "applicant",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप अपने खुद के काम के लिए, अकेले आवेदन कर रहे हैं?",
+          "help": "अगर काम आपका अपना है तो यह चुनें। समूह, सहकारी समिति और कंपनियाँ अलग तरीके से आवेदन करती हैं।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਆਪਣੇ ਖ਼ੁਦ ਦੇ ਕੰਮ ਲਈ, ਇਕੱਲੇ ਅਰਜ਼ੀ ਦੇ ਰਹੇ ਹੋ?",
+          "help": "ਜੇ ਕੰਮ ਤੁਹਾਡਾ ਆਪਣਾ ਹੈ ਤਾਂ ਇਹ ਚੁਣੋ। ਸਮੂਹ, ਸਹਿਕਾਰੀ ਸਭਾਵਾਂ ਅਤੇ ਕੰਪਨੀਆਂ ਵੱਖਰੇ ਤਰੀਕੇ ਨਾਲ ਅਰਜ਼ੀ ਦਿੰਦੀਆਂ ਹਨ।"
+        },
+        "ta": {
+          "ask": "உங்கள் சொந்தத் தொழிலுக்காக நீங்களே தனியாக விண்ணப்பிக்கிறீர்களா?",
+          "help": "தொழில் உங்களுடையது என்றால் இதைத் தேர்ந்தெடுங்கள். குழுக்கள், கூட்டுறவுச் சங்கங்கள், நிறுவனங்கள் வேறு வழியில் விண்ணப்பிக்கின்றன."
+        }
+      }
+    },
+    {
+      "key": "is_existing_micro_food_processing_unit",
+      "ask": "Do you already make, process or pack food to sell?",
+      "label": "Already making food to sell",
+      "help": "For example: grinding flour, making pickles or papad, pressing oil, packing spices, a small bakery or dairy. It counts even if it is small or run from home.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप पहले से बेचने के लिए खाने का सामान बनाते, तैयार करते या पैक करते हैं?",
+          "help": "जैसे: आटा पीसना, अचार या पापड़ बनाना, तेल निकालना, मसाले पैक करना, छोटी बेकरी या डेयरी। छोटा हो या घर से चलता हो, तब भी गिना जाएगा।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਪਹਿਲਾਂ ਹੀ ਵੇਚਣ ਲਈ ਖਾਣ ਦਾ ਸਮਾਨ ਬਣਾਉਂਦੇ, ਤਿਆਰ ਕਰਦੇ ਜਾਂ ਪੈਕ ਕਰਦੇ ਹੋ?",
+          "help": "ਜਿਵੇਂ: ਆਟਾ ਪੀਹਣਾ, ਅਚਾਰ ਜਾਂ ਪਾਪੜ ਬਣਾਉਣਾ, ਤੇਲ ਕੱਢਣਾ, ਮਸਾਲੇ ਪੈਕ ਕਰਨਾ, ਛੋਟੀ ਬੇਕਰੀ ਜਾਂ ਡੇਅਰੀ। ਛੋਟਾ ਹੋਵੇ ਜਾਂ ਘਰੋਂ ਚੱਲਦਾ ਹੋਵੇ, ਤਾਂ ਵੀ ਗਿਣਿਆ ਜਾਵੇਗਾ।"
+        },
+        "ta": {
+          "ask": "விற்பதற்காக ஏற்கனவே உணவுப் பொருட்களைத் தயாரிக்கிறீர்களா, பதப்படுத்துகிறீர்களா அல்லது பொட்டலம் போடுகிறீர்களா?",
+          "help": "உதாரணம்: மாவு அரைத்தல், ஊறுகாய் அல்லது அப்பளம் செய்தல், எண்ணெய் ஆட்டுதல், மசாலா பொட்டலம் போடுதல், சிறிய பேக்கரி அல்லது பால் பண்ணை. சிறியதாக இருந்தாலும் வீட்டிலிருந்து நடந்தாலும் கணக்கில் வரும்."
+        }
+      }
+    },
+    {
+      "key": "identified_in_slup_or_verified",
+      "ask": "Is your business listed for the district’s chosen food product, or has the scheme’s local officer verified it in person?",
+      "label": "Listed or verified",
+      "help": "Either route counts. The district plan lists units for its chosen product. The scheme’s resource person can also verify a unit in person.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपका कारोबार ज़िले के चुने खाद्य उत्पाद की सूची में है या योजना के स्थानीय अधिकारी ने मौके पर इसकी जाँच की है?",
+          "help": "इनमें से एक शर्त पूरी होना काफ़ी है।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਹਾਡਾ ਕਾਰੋਬਾਰ ਜ਼ਿਲ੍ਹੇ ਦੇ ਚੁਣੇ ਖੁਰਾਕੀ ਉਤਪਾਦ ਦੀ ਸੂਚੀ ਵਿੱਚ ਹੈ ਜਾਂ ਯੋਜਨਾ ਦੇ ਸਥਾਨਕ ਅਧਿਕਾਰੀ ਨੇ ਮੌਕੇ ਉੱਤੇ ਇਸ ਦੀ ਜਾਂਚ ਕੀਤੀ ਹੈ?",
+          "help": "ਇਨ੍ਹਾਂ ਵਿੱਚੋਂ ਇੱਕ ਸ਼ਰਤ ਪੂਰੀ ਹੋਣੀ ਕਾਫ਼ੀ ਹੈ।"
+        },
+        "ta": {
+          "ask": "மாவட்டத்தின் தேர்ந்தெடுக்கப்பட்ட உணவுப் பொருளுக்கான பட்டியலில் உங்கள் தொழில் உள்ளதா அல்லது திட்ட அலுவலர் நேரில் சரிபார்த்தாரா?",
+          "help": "இவற்றில் ஏதேனும் ஒன்று போதும்."
+        }
+      }
+    },
+    {
+      "key": "is_unincorporated",
+      "ask": "Do you run the business yourself or with family, rather than as a registered company?",
+      "label": "Not a registered company",
+      "help": "Most small businesses are like this. Answer yes if you have not registered a private limited company.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप काम खुद या परिवार के साथ चलाते हैं, कोई रजिस्टर्ड कंपनी बनाकर नहीं?",
+          "help": "ज़्यादातर छोटे काम ऐसे ही होते हैं। अगर आपने प्राइवेट लिमिटेड कंपनी रजिस्टर नहीं करवाई है तो हाँ कहें।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਕੰਮ ਆਪ ਜਾਂ ਪਰਿਵਾਰ ਨਾਲ ਚਲਾਉਂਦੇ ਹੋ, ਕੋਈ ਰਜਿਸਟਰਡ ਕੰਪਨੀ ਬਣਾ ਕੇ ਨਹੀਂ?",
+          "help": "ਜ਼ਿਆਦਾਤਰ ਛੋਟੇ ਕੰਮ ਇਸੇ ਤਰ੍ਹਾਂ ਹੁੰਦੇ ਹਨ। ਜੇ ਤੁਸੀਂ ਪ੍ਰਾਈਵੇਟ ਲਿਮਿਟਡ ਕੰਪਨੀ ਰਜਿਸਟਰ ਨਹੀਂ ਕਰਵਾਈ ਤਾਂ ਹਾਂ ਕਹੋ।"
+        },
+        "ta": {
+          "ask": "பதிவு செய்த நிறுவனமாக இல்லாமல், நீங்களோ உங்கள் குடும்பத்துடனோ தொழிலை நடத்துகிறீர்களா?",
+          "help": "பெரும்பாலான சிறு தொழில்கள் இப்படித்தான். நீங்கள் பிரைவேட் லிமிடெட் நிறுவனமாகப் பதிவு செய்யவில்லை என்றால் ஆம் என்று சொல்லுங்கள்."
+        }
+      }
+    },
+    {
+      "key": "worker_count",
+      "ask": "How many people work in your business?",
+      "label": "People working",
+      "help": "Count everyone who works there, including yourself and any family members who help.",
+      "kind": "number",
+      "whole": true,
+      "min": 0,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "आपके काम में कितने लोग काम करते हैं?",
+          "help": "जो भी वहाँ काम करता है, सबको गिनें: आप खुद और मदद करने वाले परिवार के लोग भी।"
+        },
+        "pa": {
+          "ask": "ਤੁਹਾਡੇ ਕੰਮ ਵਿੱਚ ਕਿੰਨੇ ਲੋਕ ਕੰਮ ਕਰਦੇ ਹਨ?",
+          "help": "ਜੋ ਵੀ ਉੱਥੇ ਕੰਮ ਕਰਦਾ ਹੈ, ਸਭ ਨੂੰ ਗਿਣੋ: ਆਪ ਅਤੇ ਮਦਦ ਕਰਨ ਵਾਲੇ ਪਰਿਵਾਰ ਦੇ ਜੀਅ ਵੀ।"
+        },
+        "ta": {
+          "ask": "உங்கள் தொழிலில் எத்தனை பேர் வேலை செய்கிறார்கள்?",
+          "help": "அங்கே வேலை செய்யும் அனைவரையும் எண்ணுங்கள்: நீங்களும், உதவும் குடும்பத்தினரும் உட்பட."
+        }
+      }
+    },
+    {
+      "key": "has_enterprise_ownership_right",
+      "ask": "Is the business yours?",
+      "label": "Business is yours",
+      "help": "Answer yes if you own it, alone or as a partner. Answer no if you work in someone else's business.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या यह काम आपका अपना है?",
+          "help": "अगर यह आपका है (अकेले या साझेदारी में), तो हाँ कहें। अगर आप किसी और के काम में नौकरी करते हैं तो नहीं कहें।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਇਹ ਕੰਮ ਤੁਹਾਡਾ ਆਪਣਾ ਹੈ?",
+          "help": "ਜੇ ਇਹ ਤੁਹਾਡਾ ਹੈ (ਇਕੱਲੇ ਜਾਂ ਹਿੱਸੇਦਾਰੀ ਵਿੱਚ), ਤਾਂ ਹਾਂ ਕਹੋ। ਜੇ ਤੁਸੀਂ ਕਿਸੇ ਹੋਰ ਦੇ ਕੰਮ ਵਿੱਚ ਨੌਕਰੀ ਕਰਦੇ ਹੋ ਤਾਂ ਨਹੀਂ ਕਹੋ।"
+        },
+        "ta": {
+          "ask": "இந்தத் தொழில் உங்களுடையதா?",
+          "help": "இது உங்களுடையது என்றால் (தனியாகவோ கூட்டாகவோ), ஆம் என்று சொல்லுங்கள். வேறொருவரின் தொழிலில் வேலை செய்தால் இல்லை என்று சொல்லுங்கள்."
+        }
+      }
+    },
+    {
+      "key": "age",
+      "ask": "How old are you in completed years?",
+      "label": "Your age",
+      "help": "",
+      "kind": "number",
+      "whole": true,
+      "min": 0,
+      "max": 130,
+      "translations": {
+        "hi": {
+          "ask": "आपकी उम्र पूरे वर्षों में कितनी है?"
+        },
+        "pa": {
+          "ask": "ਤੁਹਾਡੀ ਉਮਰ ਪੂਰੇ ਸਾਲਾਂ ਵਿੱਚ ਕਿੰਨੀ ਹੈ?"
+        },
+        "ta": {
+          "ask": "உங்கள் வயது நிறைவடைந்த ஆண்டுகளில் எவ்வளவு?"
+        }
+      }
+    },
+    {
+      "key": "passed_class_8",
+      "ask": "Have you passed class 8 or a higher class?",
+      "label": "Passed class 8",
+      "help": "Answer yes if you passed class 8 or a higher class.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपने कक्षा 8 या उससे ऊपर की कोई कक्षा पास की है?",
+          "help": "हाँ चुनें अगर आपने आठवीं या उससे ऊपर की कक्षा पास की है।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਅੱਠਵੀਂ ਜਾਂ ਇਸ ਤੋਂ ਉੱਪਰ ਦੀ ਜਮਾਤ ਪਾਸ ਕੀਤੀ ਹੈ?",
+          "help": "ਹਾਂ ਚੁਣੋ ਜੇ ਤੁਸੀਂ ਅੱਠਵੀਂ ਜਾਂ ਉੱਚੀ ਜਮਾਤ ਪਾਸ ਕੀਤੀ ਹੈ।"
+        },
+        "ta": {
+          "ask": "எட்டாம் வகுப்பு அல்லது அதற்கு மேற்பட்ட வகுப்பில் தேர்ச்சி பெற்றீர்களா?",
+          "help": "எட்டாம் வகுப்பு அல்லது அதற்கு மேற்பட்ட வகுப்பில் தேர்ச்சி பெற்றிருந்தால் ஆம் என்று பதிலளிக்கவும்."
+        }
+      }
+    },
+    {
+      "key": "family_member_already_received_assistance",
+      "ask": "Has anyone in your family already taken money from this scheme?",
+      "label": "Family already took this help",
+      "help": "Only one person per family can get help. Family here means you, your husband or wife, and your children.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपके परिवार में किसी ने पहले ही इस योजना से पैसा लिया है?",
+          "help": "एक परिवार में सिर्फ़ एक ही व्यक्ति को मदद मिल सकती है। यहाँ परिवार का मतलब है: आप, आपके पति या पत्नी, और आपके बच्चे।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਵਿੱਚੋਂ ਕਿਸੇ ਨੇ ਪਹਿਲਾਂ ਹੀ ਇਸ ਸਕੀਮ ਤੋਂ ਪੈਸਾ ਲਿਆ ਹੈ?",
+          "help": "ਇੱਕ ਪਰਿਵਾਰ ਵਿੱਚ ਸਿਰਫ਼ ਇੱਕ ਹੀ ਜੀਅ ਨੂੰ ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ। ਇੱਥੇ ਪਰਿਵਾਰ ਦਾ ਮਤਲਬ ਹੈ: ਆਪ, ਤੁਹਾਡਾ ਪਤੀ ਜਾਂ ਪਤਨੀ, ਅਤੇ ਤੁਹਾਡੇ ਬੱਚੇ।"
+        },
+        "ta": {
+          "ask": "உங்கள் குடும்பத்தில் யாராவது ஏற்கனவே இந்தத் திட்டத்திலிருந்து பணம் பெற்றிருக்கிறார்களா?",
+          "help": "ஒரு குடும்பத்தில் ஒருவருக்கு மட்டுமே உதவி கிடைக்கும். இங்கே குடும்பம் என்றால்: நீங்கள், உங்கள் கணவர் அல்லது மனைவி, உங்கள் பிள்ளைகள்."
+        }
+      }
+    },
+    {
+      "key": "will_formalize",
+      "ask": "Are you willing to register your business officially?",
+      "label": "Willing to register",
+      "help": "Registering makes the business formal on paper. Help with this is part of the scheme.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप अपना काम सरकारी तौर पर रजिस्टर करवाने को तैयार हैं?",
+          "help": "रजिस्टर करवाने से काम कागज़ों पर पक्का हो जाता है। इसमें मदद इस योजना का हिस्सा है।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਆਪਣਾ ਕੰਮ ਸਰਕਾਰੀ ਤੌਰ ਤੇ ਰਜਿਸਟਰ ਕਰਵਾਉਣ ਲਈ ਤਿਆਰ ਹੋ?",
+          "help": "ਰਜਿਸਟਰ ਕਰਵਾਉਣ ਨਾਲ ਕੰਮ ਕਾਗ਼ਜ਼ਾਂ ਉੱਤੇ ਪੱਕਾ ਹੋ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਿੱਚ ਮਦਦ ਇਸ ਸਕੀਮ ਦਾ ਹਿੱਸਾ ਹੈ।"
+        },
+        "ta": {
+          "ask": "உங்கள் தொழிலை அரசிடம் முறையாகப் பதிவு செய்யத் தயாரா?",
+          "help": "பதிவு செய்தால் தொழில் ஆவணங்களில் முறைப்படி உறுதியாகும். இதற்கான உதவியும் இந்தத் திட்டத்தின் ஒரு பகுதி."
+        }
+      }
+    },
+    {
+      "key": "own_contribution_percent",
+      "ask": "What share of the total cost can you pay yourself?",
+      "label": "Share you can pay",
+      "help": "You need to put in at least 10 out of every 100 rupees of the project cost. A bank loan can cover most of the rest.",
+      "kind": "number",
+      "whole": false,
+      "min": 0,
+      "max": 100,
+      "translations": {
+        "hi": {
+          "ask": "कुल खर्च का कितना हिस्सा आप खुद दे सकते हैं?",
+          "help": "हर 100 रुपये के खर्च में से कम से कम 10 रुपये आपको खुद लगाने होंगे। बाकी का ज़्यादातर हिस्सा बैंक लोन से हो सकता है।"
+        },
+        "pa": {
+          "ask": "ਕੁੱਲ ਖ਼ਰਚੇ ਦਾ ਕਿੰਨਾ ਹਿੱਸਾ ਤੁਸੀਂ ਆਪ ਦੇ ਸਕਦੇ ਹੋ?",
+          "help": "ਹਰ 100 ਰੁਪਏ ਦੇ ਖ਼ਰਚੇ ਵਿੱਚੋਂ ਘੱਟੋ-ਘੱਟ 10 ਰੁਪਏ ਤੁਹਾਨੂੰ ਆਪ ਲਾਉਣੇ ਪੈਣਗੇ। ਬਾਕੀ ਦਾ ਬਹੁਤਾ ਹਿੱਸਾ ਬੈਂਕ ਕਰਜ਼ੇ ਨਾਲ ਹੋ ਸਕਦਾ ਹੈ।"
+        },
+        "ta": {
+          "ask": "மொத்தச் செலவில் எவ்வளவு பங்கை நீங்களே செலுத்த முடியும்?",
+          "help": "ஒவ்வொரு 100 ரூபாய் செலவிலும் குறைந்தது 10 ரூபாயை நீங்களே போட வேண்டும். மீதியில் பெரும்பகுதி வங்கிக் கடனில் வரலாம்."
+        }
+      }
+    },
+    {
+      "key": "will_take_bank_loan",
+      "ask": "Are you willing to take a bank loan for the rest of the cost?",
+      "label": "Willing to take a loan",
+      "help": "The scheme pays part of the cost as a subsidy. A bank loan usually covers the remainder.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप बाकी खर्च के लिए बैंक से लोन लेने को तैयार हैं?",
+          "help": "योजना खर्च का कुछ हिस्सा सब्सिडी के रूप में देती है। बाकी आमतौर पर बैंक लोन से पूरा होता है।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਬਾਕੀ ਖ਼ਰਚੇ ਲਈ ਬੈਂਕ ਤੋਂ ਕਰਜ਼ਾ ਲੈਣ ਲਈ ਤਿਆਰ ਹੋ?",
+          "help": "ਸਕੀਮ ਖ਼ਰਚੇ ਦਾ ਕੁਝ ਹਿੱਸਾ ਸਬਸਿਡੀ ਵਜੋਂ ਦਿੰਦੀ ਹੈ। ਬਾਕੀ ਆਮ ਤੌਰ ਤੇ ਬੈਂਕ ਕਰਜ਼ੇ ਨਾਲ ਪੂਰਾ ਹੁੰਦਾ ਹੈ।"
+        },
+        "ta": {
+          "ask": "மீதிச் செலவுக்கு வங்கிக் கடன் வாங்கத் தயாரா?",
+          "help": "திட்டம் செலவின் ஒரு பகுதியை மானியமாகத் தருகிறது. மீதி பொதுவாக வங்கிக் கடனில் நிறைவடைகிறது."
+        }
+      }
+    },
+    {
+      "key": "has_bank_or_post_office_account",
+      "ask": "Do you have your own bank or Post office account?",
+      "label": "Has a bank or Post office account",
+      "help": "The yearly fee is taken from this account. A joint or family member's account does not count.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपका अपना बैंक या डाकघर (पोस्ट ऑफ़िस) खाता है?",
+          "help": "सालाना पैसा इसी खाते से कटता है। परिवार के किसी और का खाता नहीं चलेगा।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਹਾਡਾ ਆਪਣਾ ਬੈਂਕ ਜਾਂ ਡਾਕਘਰ ਖਾਤਾ ਹੈ?",
+          "help": "ਸਾਲਾਨਾ ਪੈਸਾ ਇਸੇ ਖਾਤੇ ਵਿੱਚੋਂ ਕੱਟਿਆ ਜਾਂਦਾ ਹੈ। ਪਰਿਵਾਰ ਦੇ ਕਿਸੇ ਹੋਰ ਦਾ ਖਾਤਾ ਨਹੀਂ ਚੱਲੇਗਾ।"
+        },
+        "ta": {
+          "ask": "உங்களுக்குச் சொந்தமாக வங்கி அல்லது அஞ்சலக கணக்கு இருக்கிறதா?",
+          "help": "ஆண்டுக் கட்டணம் இந்தக் கணக்கிலிருந்து எடுக்கப்படும். குடும்பத்தினரின் கணக்கு செல்லாது."
+        }
+      }
+    },
+    {
+      "key": "consents_to_auto_debit",
+      "ask": "Are you willing to let the bank take the yearly fee from your account automatically?",
+      "label": "Agrees to automatic fee payment",
+      "help": "This is called auto-debit. You sign a form at the bank once, and the fee is taken every year.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप बैंक को हर साल का पैसा आपके खाते से अपने-आप काटने देंगे?",
+          "help": "इसे ऑटो-डेबिट कहते हैं। बैंक में एक बार फ़ॉर्म भरना होता है, फिर हर साल पैसा कट जाता है।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਬੈਂਕ ਨੂੰ ਹਰ ਸਾਲ ਦਾ ਪੈਸਾ ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚੋਂ ਆਪਣੇ-ਆਪ ਕੱਟਣ ਦਿਓਗੇ?",
+          "help": "ਇਸਨੂੰ ਆਟੋ-ਡੈਬਿਟ ਕਹਿੰਦੇ ਹਨ। ਬੈਂਕ ਵਿੱਚ ਇੱਕ ਵਾਰ ਫ਼ਾਰਮ ਭਰਨਾ ਹੁੰਦਾ ਹੈ।"
+        },
+        "ta": {
+          "ask": "ஆண்டுக் கட்டணத்தை உங்கள் கணக்கிலிருந்து வங்கி தானாக எடுக்க நீங்கள் சம்மதிக்கிறீர்களா?",
+          "help": "இது ஆட்டோ-டெபிட் எனப்படும். வங்கியில் ஒரு முறை படிவம் கொடுத்தால் போதும்."
+        }
+      }
+    },
+    {
+      "key": "is_indian_citizen",
+      "ask": "Are you a citizen of India?",
+      "label": "Indian citizen",
+      "help": "",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप भारत के नागरिक हैं?"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਭਾਰਤ ਦੇ ਨਾਗਰਿਕ ਹੋ?"
+        },
+        "ta": {
+          "ask": "நீங்கள் இந்தியக் குடிமகனா?"
+        }
+      }
+    },
+    {
+      "key": "has_savings_bank_account",
+      "ask": "Do you have a savings account in a bank?",
+      "label": "Has a savings bank account",
+      "help": "The monthly payment is taken from this account.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपका किसी बैंक में बचत (सेविंग्स) खाता है?",
+          "help": "हर महीने का पैसा इसी खाते से कटता है।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਹਾਡਾ ਕਿਸੇ ਬੈਂਕ ਵਿੱਚ ਬੱਚਤ (ਸੇਵਿੰਗਜ਼) ਖਾਤਾ ਹੈ?",
+          "help": "ਹਰ ਮਹੀਨੇ ਦਾ ਪੈਸਾ ਇਸੇ ਖਾਤੇ ਵਿੱਚੋਂ ਕੱਟਿਆ ਜਾਂਦਾ ਹੈ।"
+        },
+        "ta": {
+          "ask": "உங்களுக்கு வங்கியில் சேமிப்புக் கணக்கு இருக்கிறதா?",
+          "help": "மாதத் தொகை இந்தக் கணக்கிலிருந்து எடுக்கப்படும்."
+        }
+      }
+    },
+    {
+      "key": "ever_paid_income_tax",
+      "ask": "Have you ever paid income tax?",
+      "label": "Has paid income tax",
+      "help": "Income tax is the tax on earnings that people with higher income file every year. Most farmers and daily workers do not pay it.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपने कभी इनकम टैक्स (आयकर) भरा है?",
+          "help": "इनकम टैक्स ज़्यादा कमाई वाले लोग हर साल भरते हैं। ज़्यादातर किसान और मज़दूर इसे नहीं भरते।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਕਦੇ ਇਨਕਮ ਟੈਕਸ (ਆਮਦਨ ਕਰ) ਭਰਿਆ ਹੈ?",
+          "help": "ਇਨਕਮ ਟੈਕਸ ਵੱਧ ਕਮਾਈ ਵਾਲੇ ਲੋਕ ਹਰ ਸਾਲ ਭਰਦੇ ਹਨ। ਜ਼ਿਆਦਾਤਰ ਕਿਸਾਨ ਅਤੇ ਮਜ਼ਦੂਰ ਇਹ ਨਹੀਂ ਭਰਦੇ।"
+        },
+        "ta": {
+          "ask": "நீங்கள் எப்போதாவது வருமான வரி கட்டியிருக்கிறீர்களா?",
+          "help": "அதிக வருமானம் உள்ளவர்கள் ஆண்டுதோறும் வருமான வரி கட்டுவார்கள். பெரும்பாலான விவசாயிகளும் தொழிலாளர்களும் கட்டுவதில்லை."
+        }
+      }
+    },
+    {
+      "key": "paid_income_tax_last_year",
+      "ask": "Did you pay income tax last year?",
+      "label": "Paid income tax last year",
+      "help": "Income tax is the tax on earnings that people with higher income file every year. Most farmers do not pay it.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपने पिछले साल इनकम टैक्स (आयकर) भरा था?",
+          "help": "इनकम टैक्स ज़्यादा कमाई वाले लोग हर साल भरते हैं। ज़्यादातर किसान इसे नहीं भरते।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਪਿਛਲੇ ਸਾਲ ਇਨਕਮ ਟੈਕਸ (ਆਮਦਨ ਕਰ) ਭਰਿਆ ਸੀ?",
+          "help": "ਇਨਕਮ ਟੈਕਸ ਵੱਧ ਕਮਾਈ ਵਾਲੇ ਲੋਕ ਹਰ ਸਾਲ ਭਰਦੇ ਹਨ। ਜ਼ਿਆਦਾਤਰ ਕਿਸਾਨ ਇਹ ਨਹੀਂ ਭਰਦੇ।"
+        },
+        "ta": {
+          "ask": "கடந்த ஆண்டு நீங்கள் வருமான வரி கட்டினீர்களா?",
+          "help": "அதிக வருமானம் உள்ளவர்கள் ஆண்டுதோறும் வருமான வரி கட்டுவார்கள். பெரும்பாலான விவசாயிகள் கட்டுவதில்லை."
+        }
+      }
+    },
+    {
+      "key": "owns_cultivable_land",
+      "ask": "Do you own farmland in your name?",
+      "label": "Owns farmland",
+      "help": "The land must be in the government land records in your name. Land you only rent or farm for someone else does not count.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपके नाम पर खेती की ज़मीन है?",
+          "help": "ज़मीन सरकारी रिकॉर्ड (खसरा/खतौनी) में आपके नाम होनी चाहिए। किराए या बटाई की ज़मीन नहीं गिनी जाती।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਹਾਡੇ ਨਾਂ 'ਤੇ ਖੇਤੀ ਵਾਲੀ ਜ਼ਮੀਨ ਹੈ?",
+          "help": "ਜ਼ਮੀਨ ਸਰਕਾਰੀ ਰਿਕਾਰਡ (ਜਮ੍ਹਾਂਬੰਦੀ) ਵਿੱਚ ਤੁਹਾਡੇ ਨਾਂ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ। ਠੇਕੇ ਵਾਲੀ ਜ਼ਮੀਨ ਨਹੀਂ ਗਿਣੀ ਜਾਂਦੀ।"
+        },
+        "ta": {
+          "ask": "உங்கள் பெயரில் விவசாய நிலம் இருக்கிறதா?",
+          "help": "நிலம் அரசு நிலப் பதிவேட்டில் உங்கள் பெயரில் இருக்க வேண்டும். குத்தகை நிலம் கணக்கில் வராது."
+        }
+      }
+    },
+    {
+      "key": "land_hectares",
+      "ask": "How much cultivable land do you own, in hectares?",
+      "label": "Land owned",
+      "help": "1 hectare is about 2.5 acres. So 2 hectares is about 5 acres.",
+      "kind": "number",
+      "whole": false,
+      "min": 0,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "आपके पास कितनी खेती की ज़मीन है, हेक्टेयर में?",
+          "help": "1 हेक्टेयर लगभग 2.5 एकड़ होता है। यानी 2 हेक्टेयर लगभग 5 एकड़।"
+        },
+        "pa": {
+          "ask": "ਤੁਹਾਡੇ ਕੋਲ ਕਿੰਨੀ ਖੇਤੀ ਵਾਲੀ ਜ਼ਮੀਨ ਹੈ, ਹੈਕਟੇਅਰ ਵਿੱਚ?",
+          "help": "1 ਹੈਕਟੇਅਰ ਲਗਭਗ 2.5 ਏਕੜ ਹੁੰਦਾ ਹੈ। ਯਾਨੀ 2 ਹੈਕਟੇਅਰ ਲਗਭਗ 5 ਏਕੜ।"
+        },
+        "ta": {
+          "ask": "உங்களிடம் எத்தனை ஹெக்டேர் விவசாய நிலம் உள்ளது?",
+          "help": "1 ஹெக்டேர் என்பது சுமார் 2.5 ஏக்கர். அதாவது 2 ஹெக்டேர் சுமார் 5 ஏக்கர்."
+        }
+      }
+    },
+    {
+      "key": "in_other_pension_or_social_security_scheme",
+      "ask": "Are you already in another pension fund, like NPS, PF (EPFO), ESIC, PM-SYM or PM-LVM?",
+      "label": "Already in another pension fund",
+      "help": "PF and ESIC are usually deducted from the salary of factory or office workers. NPS, PM-SYM and PM-LVM are other government pension plans.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप पहले से किसी और पेंशन योजना में हैं, जैसे NPS, PF, ESIC, PM-SYM या PM-LVM?",
+          "help": "PF और ESIC आमतौर पर फ़ैक्टरी या दफ़्तर की तनख़्वाह से कटते हैं। NPS, PM-SYM और PM-LVM दूसरी सरकारी पेंशन योजनाएँ हैं।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਪਹਿਲਾਂ ਹੀ ਕਿਸੇ ਹੋਰ ਪੈਨਸ਼ਨ ਯੋਜਨਾ ਵਿੱਚ ਹੋ, ਜਿਵੇਂ NPS, PF, ESIC, PM-SYM ਜਾਂ PM-LVM?",
+          "help": "PF ਅਤੇ ESIC ਆਮ ਤੌਰ 'ਤੇ ਫ਼ੈਕਟਰੀ ਜਾਂ ਦਫ਼ਤਰ ਦੀ ਤਨਖ਼ਾਹ ਵਿੱਚੋਂ ਕੱਟੇ ਜਾਂਦੇ ਹਨ।"
+        },
+        "ta": {
+          "ask": "நீங்கள் ஏற்கனவே NPS, PF, ESIC, PM-SYM அல்லது PM-LVM போன்ற வேறு ஓய்வூதியத் திட்டத்தில் இருக்கிறீர்களா?",
+          "help": "PF, ESIC பொதுவாக தொழிற்சாலை அல்லது அலுவலகச் சம்பளத்திலிருந்து பிடிக்கப்படும்."
+        }
+      }
+    },
+    {
+      "key": "is_institutional_landholder",
+      "ask": "Is the land owned by a trust, company or organisation rather than a person?",
+      "label": "Land owned by an organisation",
+      "help": "",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या ज़मीन किसी व्यक्ति की जगह किसी ट्रस्ट, कंपनी या संस्था के नाम पर है?"
+        },
+        "pa": {
+          "ask": "ਕੀ ਜ਼ਮੀਨ ਕਿਸੇ ਵਿਅਕਤੀ ਦੀ ਥਾਂ ਕਿਸੇ ਟਰੱਸਟ, ਕੰਪਨੀ ਜਾਂ ਸੰਸਥਾ ਦੇ ਨਾਂ 'ਤੇ ਹੈ?"
+        },
+        "ta": {
+          "ask": "நிலம் ஒரு நபரின் பெயரில் இல்லாமல் அறக்கட்டளை, நிறுவனம் அல்லது அமைப்பின் பெயரில் உள்ளதா?"
+        }
+      }
+    },
+    {
+      "key": "holds_or_held_public_office",
+      "ask": "Are you now, or were you ever, a minister, MP, MLA, mayor or district panchayat head?",
+      "label": "Holds or held a high public post",
+      "help": "This also covers constitutional posts such as judges and governors. Village sarpanch is not in this list.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप अभी या पहले कभी मंत्री, सांसद, विधायक, मेयर या ज़िला पंचायत अध्यक्ष रहे हैं?",
+          "help": "इसमें जज, राज्यपाल जैसे संवैधानिक पद भी आते हैं। गाँव के सरपंच इसमें नहीं आते।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਹੁਣ ਜਾਂ ਪਹਿਲਾਂ ਕਦੇ ਮੰਤਰੀ, ਸੰਸਦ ਮੈਂਬਰ, ਵਿਧਾਇਕ, ਮੇਅਰ ਜਾਂ ਜ਼ਿਲ੍ਹਾ ਪਰਿਸ਼ਦ ਚੇਅਰਮੈਨ ਰਹੇ ਹੋ?",
+          "help": "ਇਸ ਵਿੱਚ ਜੱਜ, ਰਾਜਪਾਲ ਵਰਗੇ ਸੰਵਿਧਾਨਕ ਅਹੁਦੇ ਵੀ ਆਉਂਦੇ ਹਨ। ਪਿੰਡ ਦਾ ਸਰਪੰਚ ਇਸ ਵਿੱਚ ਨਹੀਂ ਆਉਂਦਾ।"
+        },
+        "ta": {
+          "ask": "நீங்கள் இப்போது அல்லது முன்பு அமைச்சர், எம்.பி., எம்.எல்.ஏ., மேயர் அல்லது மாவட்ட ஊராட்சித் தலைவராக இருந்தீர்களா?",
+          "help": "நீதிபதி, ஆளுநர் போன்ற அரசியலமைப்புப் பதவிகளும் இதில் அடங்கும். கிராம ஊராட்சித் தலைவர் இதில் அடங்கமாட்டார்."
+        }
+      }
+    },
+    {
+      "key": "is_government_employee",
+      "ask": "Do you work, or did you retire, as a government or public sector employee?",
+      "label": "Government employee",
+      "help": "Peons, helpers and other Group D or Class IV staff are not counted here, so answer No if that was your job.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप सरकारी या सरकारी कंपनी के कर्मचारी हैं, या वहाँ से रिटायर हुए हैं?",
+          "help": "चपरासी, सहायक और दूसरे ग्रुप D या चतुर्थ श्रेणी कर्मचारी इसमें नहीं गिने जाते। ऐसा हो तो 'नहीं' चुनें।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਸਰਕਾਰੀ ਜਾਂ ਸਰਕਾਰੀ ਕੰਪਨੀ ਦੇ ਮੁਲਾਜ਼ਮ ਹੋ, ਜਾਂ ਉੱਥੋਂ ਰਿਟਾਇਰ ਹੋਏ ਹੋ?",
+          "help": "ਚਪੜਾਸੀ, ਸਹਾਇਕ ਅਤੇ ਹੋਰ ਗਰੁੱਪ D ਜਾਂ ਚੌਥਾ ਦਰਜਾ ਮੁਲਾਜ਼ਮ ਇਸ ਵਿੱਚ ਨਹੀਂ ਗਿਣੇ ਜਾਂਦੇ। ਇਸ ਲਈ 'ਨਹੀਂ' ਚੁਣੋ।"
+        },
+        "ta": {
+          "ask": "நீங்கள் அரசு அல்லது பொதுத்துறை ஊழியரா, அல்லது அங்கிருந்து ஓய்வு பெற்றவரா?",
+          "help": "உதவியாளர்கள் போன்ற குரூப் D / நான்காம் நிலை ஊழியர்கள் இதில் சேர்க்கப்படமாட்டார்கள். அப்படியானால் 'இல்லை' எனச் சொல்லுங்கள்."
+        }
+      }
+    },
+    {
+      "key": "is_practising_professional",
+      "ask": "Do you work as a registered doctor, engineer, lawyer, chartered accountant or architect?",
+      "label": "Practising professional",
+      "help": "",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप रजिस्टर्ड डॉक्टर, इंजीनियर, वकील, चार्टर्ड अकाउंटेंट या आर्किटेक्ट के रूप में काम करते हैं?"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਰਜਿਸਟਰਡ ਡਾਕਟਰ, ਇੰਜੀਨੀਅਰ, ਵਕੀਲ, ਚਾਰਟਰਡ ਅਕਾਊਂਟੈਂਟ ਜਾਂ ਆਰਕੀਟੈਕਟ ਵਜੋਂ ਕੰਮ ਕਰਦੇ ਹੋ?"
+        },
+        "ta": {
+          "ask": "நீங்கள் பதிவுசெய்த மருத்துவர், பொறியாளர், வழக்கறிஞர், பட்டயக் கணக்காளர் அல்லது கட்டடக் கலைஞராகப் பணிபுரிகிறீர்களா?"
+        }
+      }
+    },
+    {
+      "key": "is_street_vendor",
+      "ask": "Do you sell things or services on the street, footpath or market for a living?",
+      "label": "Street vendor",
+      "help": "For example: a vegetable or fruit cart, tea or food stall, cobbler, barber, or selling while moving from place to place.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप सड़क, फ़ुटपाथ या बाज़ार में सामान या सेवा बेचकर कमाते हैं?",
+          "help": "जैसे: सब्ज़ी या फल का ठेला, चाय या खाने की दुकान, मोची, नाई, या घूम-घूमकर बेचना।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਸੜਕ, ਫੁੱਟਪਾਥ ਜਾਂ ਬਾਜ਼ਾਰ ਵਿੱਚ ਸਮਾਨ ਜਾਂ ਸੇਵਾ ਵੇਚ ਕੇ ਕਮਾਉਂਦੇ ਹੋ?",
+          "help": "ਜਿਵੇਂ: ਸਬਜ਼ੀ ਜਾਂ ਫਲ ਦੀ ਰੇਹੜੀ, ਚਾਹ ਜਾਂ ਖਾਣੇ ਦੀ ਦੁਕਾਨ, ਮੋਚੀ, ਨਾਈ, ਜਾਂ ਘੁੰਮ-ਫਿਰ ਕੇ ਵੇਚਣਾ।"
+        },
+        "ta": {
+          "ask": "தெரு, நடைபாதை அல்லது சந்தையில் பொருட்கள் அல்லது சேவைகளை விற்று வாழ்கிறீர்களா?",
+          "help": "உதாரணம்: காய்கறி அல்லது பழ வண்டி, டீ அல்லது உணவுக் கடை, செருப்புத் தைப்பவர், முடி திருத்துபவர், அல்லது சுற்றி விற்பது."
+        }
+      }
+    },
+    {
+      "key": "vends_in_town_or_peri_urban",
+      "ask": "Do you sell in a town or city, or in an area next to one?",
+      "label": "Sells in a town or near one",
+      "help": "This scheme is for towns and the areas around them, not for villages far from a town.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप किसी शहर या कस्बे में, या उसके पास के इलाक़े में बेचते हैं?",
+          "help": "यह योजना शहरों-कस्बों और उनके आसपास के इलाक़ों के लिए है, दूर के गाँवों के लिए नहीं।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਕਿਸੇ ਸ਼ਹਿਰ ਜਾਂ ਕਸਬੇ ਵਿੱਚ, ਜਾਂ ਉਸਦੇ ਨੇੜਲੇ ਇਲਾਕੇ ਵਿੱਚ ਵੇਚਦੇ ਹੋ?",
+          "help": "ਇਹ ਯੋਜਨਾ ਸ਼ਹਿਰਾਂ-ਕਸਬਿਆਂ ਅਤੇ ਉਨ੍ਹਾਂ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਲਈ ਹੈ, ਦੂਰ ਦੇ ਪਿੰਡਾਂ ਲਈ ਨਹੀਂ।"
+        },
+        "ta": {
+          "ask": "நகரம் அல்லது சிறு நகரத்தில், அல்லது அதன் அருகில் விற்கிறீர்களா?",
+          "help": "இந்தத் திட்டம் நகரங்களுக்கும் அவற்றின் சுற்றுப்புறங்களுக்கும் உரியது, தொலைதூர கிராமங்களுக்கு அல்ல."
+        }
+      }
+    },
+    {
+      "key": "household_is_bpl",
+      "ask": "Is your household poor, below the poverty line (BPL)?",
+      "label": "Poor (BPL) household",
+      "help": "Even if your name is not on the BPL list, you should not be left out. The panchayat can check your case.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपका परिवार ग़रीब है, यानी गरीबी रेखा से नीचे (BPL)?",
+          "help": "अगर आपका नाम BPL सूची में नहीं है, तब भी आपको छोड़ा नहीं जाना चाहिए। पंचायत आपका मामला जाँच सकती है।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਹਾਡਾ ਪਰਿਵਾਰ ਗ਼ਰੀਬ ਹੈ, ਯਾਨੀ ਗ਼ਰੀਬੀ ਰੇਖਾ ਤੋਂ ਹੇਠਾਂ (BPL)?",
+          "help": "ਜੇ ਤੁਹਾਡਾ ਨਾਂ BPL ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ ਹੈ, ਤਾਂ ਵੀ ਤੁਹਾਨੂੰ ਛੱਡਿਆ ਨਹੀਂ ਜਾਣਾ ਚਾਹੀਦਾ। ਪੰਚਾਇਤ ਤੁਹਾਡਾ ਮਾਮਲਾ ਜਾਂਚ ਸਕਦੀ ਹੈ।"
+        },
+        "ta": {
+          "ask": "உங்கள் குடும்பம் வறுமைக் கோட்டுக்குக் கீழே (BPL) உள்ளதா?",
+          "help": "உங்கள் பெயர் BPL பட்டியலில் இல்லாவிட்டாலும் நீங்கள் விடுபடக்கூடாது. ஊராட்சி உங்கள் நிலையைச் சரிபார்க்கலாம்."
+        }
+      }
+    },
+    {
+      "key": "is_woman",
+      "ask": "Is the person applying a woman?",
+      "label": "Woman",
+      "help": "Some schemes, like the free gas connection, are given only in a woman's name.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आवेदन करने वाली एक महिला हैं?",
+          "help": "कुछ योजनाएँ, जैसे मुफ़्त गैस कनेक्शन, सिर्फ़ महिला के नाम पर मिलती हैं।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਅਰਜ਼ੀ ਦੇਣ ਵਾਲੀ ਇੱਕ ਔਰਤ ਹੈ?",
+          "help": "ਕੁਝ ਯੋਜਨਾਵਾਂ, ਜਿਵੇਂ ਮੁਫ਼ਤ ਗੈਸ ਕੁਨੈਕਸ਼ਨ, ਸਿਰਫ਼ ਔਰਤ ਦੇ ਨਾਂ 'ਤੇ ਮਿਲਦੀਆਂ ਹਨ।"
+        },
+        "ta": {
+          "ask": "விண்ணப்பிப்பவர் ஒரு பெண்ணா?",
+          "help": "இலவச எரிவாயு இணைப்பு போன்ற சில திட்டங்கள் பெண்ணின் பெயரில் மட்டுமே வழங்கப்படும்."
+        }
+      }
+    },
+    {
+      "key": "household_has_lpg_or_png",
+      "ask": "Does your household currently have a government oil company LPG connection or domestic piped gas?",
+      "label": "Home already has gas",
+      "help": "Household means family members on the family composition document who live together and share a kitchen.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या अभी आपके घर में सरकारी तेल कंपनी का एलपीजी कनेक्शन या घरेलू पाइप गैस है?",
+          "help": "परिवार के दस्तावेज़ में दर्ज वे सदस्य शामिल हैं जो साथ रहते हैं और एक रसोई साझा करते हैं।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਇਸ ਵੇਲੇ ਤੁਹਾਡੇ ਘਰ ਵਿੱਚ ਸਰਕਾਰੀ ਤੇਲ ਕੰਪਨੀ ਦਾ ਐਲਪੀਜੀ ਕੁਨੈਕਸ਼ਨ ਜਾਂ ਘਰੇਲੂ ਪਾਈਪ ਗੈਸ ਹੈ?",
+          "help": "ਪਰਿਵਾਰ ਦੇ ਦਸਤਾਵੇਜ਼ ਵਿੱਚ ਦਰਜ ਉਹ ਮੈਂਬਰ ਸ਼ਾਮਲ ਹਨ ਜੋ ਇਕੱਠੇ ਰਹਿੰਦੇ ਹਨ ਅਤੇ ਇੱਕੋ ਰਸੋਈ ਵਰਤਦੇ ਹਨ।"
+        },
+        "ta": {
+          "ask": "உங்கள் வீட்டில் தற்போது அரசு எண்ணெய் நிறுவன சமையல் எரிவாயு இணைப்போ வீட்டுக் குழாய் எரிவாயு இணைப்போ உள்ளதா?",
+          "help": "குடும்ப ஆவணத்தில் இடம்பெற்று ஒன்றாக வசித்து ஒரே சமையலறையைப் பயன்படுத்தும் உறுப்பினர்களைக் கணக்கில் கொள்ளுங்கள்."
+        }
+      }
+    },
+    {
+      "key": "will_give_deprivation_declaration",
+      "ask": "Will you fill in a form saying your household is poor, and let officials check it?",
+      "label": "Will give the poverty declaration",
+      "help": "This is called the Deprivation Declaration. Officials may visit your home to check it.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप अपने परिवार के ग़रीब होने का फ़ॉर्म भरेंगी, और अधिकारियों को उसकी जाँच करने देंगी?",
+          "help": "इसे वंचना घोषणा (Deprivation Declaration) कहते हैं। अधिकारी जाँच के लिए घर आ सकते हैं।"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਆਪਣੇ ਪਰਿਵਾਰ ਦੇ ਗ਼ਰੀਬ ਹੋਣ ਦਾ ਫ਼ਾਰਮ ਭਰੋਗੇ, ਅਤੇ ਅਧਿਕਾਰੀਆਂ ਨੂੰ ਉਸਦੀ ਜਾਂਚ ਕਰਨ ਦਿਓਗੇ?",
+          "help": "ਇਸਨੂੰ ਡਿਪ੍ਰਾਈਵੇਸ਼ਨ ਡੈਕਲਰੇਸ਼ਨ ਕਹਿੰਦੇ ਹਨ। ਅਧਿਕਾਰੀ ਜਾਂਚ ਲਈ ਘਰ ਆ ਸਕਦੇ ਹਨ।"
+        },
+        "ta": {
+          "ask": "உங்கள் குடும்பம் வறுமையில் உள்ளது என்ற படிவத்தை நிரப்பி, அதிகாரிகள் சரிபார்க்க அனுமதிப்பீர்களா?",
+          "help": "இது வறுமை அறிவிப்பு (Deprivation Declaration) எனப்படும். அதிகாரிகள் சரிபார்க்க வீட்டுக்கு வரலாம்."
+        }
+      }
+    },
+    {
+      "key": "resides_in_india",
+      "ask": "Do you live in India?",
+      "label": "Lives in India",
+      "help": "",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आप भारत में रहते हैं?"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਸੀਂ ਭਾਰਤ ਵਿੱਚ ਰਹਿੰਦੇ ਹੋ?"
+        },
+        "ta": {
+          "ask": "நீங்கள் இந்தியாவில் வசிக்கிறீர்களா?"
+        }
+      }
+    },
+    {
+      "key": "household_previously_had_gas",
+      "ask": "Has anyone in your household previously had a government oil company LPG connection or domestic piped gas?",
+      "label": "Previous household connection",
+      "help": "Include people on the family composition document who live together and share a kitchen.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "क्या आपके घर में पहले किसी के पास सरकारी तेल कंपनी का घरेलू गैस कनेक्शन या पाइप गैस थी?"
+        },
+        "pa": {
+          "ask": "ਕੀ ਤੁਹਾਡੇ ਘਰ ਵਿੱਚ ਪਹਿਲਾਂ ਕਿਸੇ ਕੋਲ ਸਰਕਾਰੀ ਤੇਲ ਕੰਪਨੀ ਦਾ ਗੈਸ ਕੁਨੈਕਸ਼ਨ ਜਾਂ ਘਰੇਲੂ ਪਾਈਪ ਗੈਸ ਸੀ?"
+        },
+        "ta": {
+          "ask": "உங்கள் குடும்பத்தில் யாருக்காவது முன்பு அரசு எண்ணெய் நிறுவன சமையல் எரிவாயு இணைப்போ வீட்டுக் குழாய் எரிவாயு இணைப்போ இருந்ததா?"
+        }
+      }
+    },
+    {
+      "key": "local_scheme_coverage_confirmed",
+      "ask": "According to your local authority, is the place where you sell covered by PM SVANidhi?",
+      "label": "Local coverage",
+      "help": "Answer yes if coverage is confirmed. If you have not checked with the local authority, skip this question. Answer no only if it confirmed your area is outside coverage.",
+      "kind": "boolean",
+      "whole": false,
+      "min": null,
+      "max": null,
+      "translations": {
+        "hi": {
+          "ask": "स्थानीय निकाय के अनुसार, क्या जहाँ आप बेचते हैं वह जगह पीएम स्वनिधि में शामिल है?",
+          "help": "पुष्टि नहीं हुई है तो सवाल छोड़ें।"
+        },
+        "pa": {
+          "ask": "ਸਥਾਨਕ ਅਧਿਕਾਰੀ ਅਨੁਸਾਰ, ਕੀ ਜਿੱਥੇ ਤੁਸੀਂ ਵੇਚਦੇ ਹੋ ਉਹ ਥਾਂ ਪੀਐਮ ਸਵਨਿਧੀ ਹੇਠ ਆਉਂਦੀ ਹੈ?",
+          "help": "ਜੇ ਪੁਸ਼ਟੀ ਨਹੀਂ ਹੋਈ ਤਾਂ ਸਵਾਲ ਛੱਡੋ।"
+        },
+        "ta": {
+          "ask": "உள்ளாட்சி அமைப்பின் தகவல்படி நீங்கள் விற்கும் இடம் பிஎம் ஸ்வநிதி திட்டத்தில் உள்ளதா?",
+          "help": "உறுதி செய்யப்படவில்லை என்றால் கேள்வியைத் தவிர்க்கவும்."
+        }
+      }
+    }
+  ],
+  "schemes": [
+    {
+      "slug": "pmfme",
+      "title": "PMFME individual-unit support",
+      "name": "PM Formalisation of Micro Food Processing Enterprises Scheme",
+      "category": "Small business",
+      "summary": "Individual-unit support for existing micro food-processing businesses.",
+      "authority": "Ministry of Food Processing Industries",
+      "sourceUrl": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf",
+      "version": 1,
+      "conditions": [
+        {
+          "id": "applicant_is_individual_unit",
+          "tests": [
+            {
+              "key": "applicant_type",
+              "operator": "==",
+              "expected": "individual"
+            }
+          ],
+          "evidence": {
+            "id": "individual-capital-subsidy",
+            "plain": "An individual micro food processing unit can get a 35% credit-linked capital subsidy, capped at Rs.10 lakh. The beneficiary must put in at least 10% of the project cost and finance the rest through a bank loan.",
+            "quote": "Individual  micro  food  processing  units  would  be  provided  credit-linked  capital\nsubsidy @35% of the eligible project cost with a maximum ceiling of Rs.10.0 lakh\nper  unit.  Beneficiary  contribution  should  be minimum  of  10%  of  the  project  cost\nwith balance being loan from Bank.",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        },
+        {
+          "id": "existing_micro_food_unit",
+          "tests": [
+            {
+              "key": "is_existing_micro_food_processing_unit",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "individual-existing-unit",
+            "plain": "The individual-unit support is for micro food processing units that are already operating.",
+            "quote": "i)  Existing micro food processing units in operations;",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        },
+        {
+          "id": "unit_identified_or_verified",
+          "tests": [
+            {
+              "key": "identified_in_slup_or_verified",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "individual-identified-or-verified",
+            "plain": "The unit should be identified in the SLUP for an ODOP product or verified in the field by the Resource Person. Operational proof can come from the electricity bill or from evidence such as inventory, machines, and sales.",
+            "quote": "ii)  Existing  units  should  be  those  identified  in  the  SLUP  for  ODOP\nproducts or by the Resource Person on physical verification. In case\nof units using electrical power, electricity bill would support it being in\noperations. For others units, existing operations, inventory, machines\nand sales would form the basis;",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        },
+        {
+          "id": "unincorporated_and_under_ten_workers",
+          "tests": [
+            {
+              "key": "is_unincorporated",
+              "operator": "==",
+              "expected": "true"
+            },
+            {
+              "key": "worker_count",
+              "operator": "<",
+              "expected": "10"
+            }
+          ],
+          "evidence": {
+            "id": "individual-unincorporated-under-ten-workers",
+            "plain": "The enterprise must be unincorporated and have fewer than 10 workers.",
+            "quote": "iii)  The  enterprise  should  be  unincorporated  and  should  employ  less\n\nthan 10 workers;",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        },
+        {
+          "id": "applicant_has_ownership_right",
+          "tests": [
+            {
+              "key": "has_enterprise_ownership_right",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "individual-ownership-right",
+            "plain": "The applicant must hold ownership rights over the enterprise.",
+            "quote": "v)  The applicant should have ownership right of the enterprise;",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        },
+        {
+          "id": "applicant_age_and_education",
+          "tests": [
+            {
+              "key": "age",
+              "operator": ">",
+              "expected": "18"
+            },
+            {
+              "key": "passed_class_8",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "individual-age-and-education",
+            "plain": "The applicant must be older than 18 and have passed at least class VIII.",
+            "quote": "vii) The applicant should be above 18 years of age and should possess\n\nat least VIII standard pass educational qualification;",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        },
+        {
+          "id": "one_person_per_family_only",
+          "tests": [
+            {
+              "key": "family_member_already_received_assistance",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "individual-one-person-per-family",
+            "plain": "Only one person in a family can get assistance. For this rule, family includes the applicant, spouse, and children.",
+            "quote": "viii)  Only  one  person  from  one  family  would  be  eligible  for  obtaining\nfinancial assistance. The “family” for this purpose would include self,\nspouse and children;",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        },
+        {
+          "id": "willing_to_formalize_and_contribute",
+          "tests": [
+            {
+              "key": "will_formalize",
+              "operator": "==",
+              "expected": "true"
+            },
+            {
+              "key": "own_contribution_percent",
+              "operator": ">=",
+              "expected": "10"
+            },
+            {
+              "key": "will_take_bank_loan",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "individual-formalize-contribute-and-borrow",
+            "plain": "The applicant must be willing to formalize the unit, contribute 10% of the project cost, and take a bank loan.",
+            "quote": "ix)  Willingness to formalize and contribute10% of project cost and obtain\n\nBank loan;",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [
+          {
+            "id": "individual-capital-subsidy",
+            "plain": "An individual micro food processing unit can get a 35% credit-linked capital subsidy, capped at Rs.10 lakh. The beneficiary must put in at least 10% of the project cost and finance the rest through a bank loan.",
+            "quote": "Individual  micro  food  processing  units  would  be  provided  credit-linked  capital\nsubsidy @35% of the eligible project cost with a maximum ceiling of Rs.10.0 lakh\nper  unit.  Beneficiary  contribution  should  be minimum  of  10%  of  the  project  cost\nwith balance being loan from Bank.",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        ],
+        "documents": [
+          {
+            "id": "loan-documents-required",
+            "plain": "Loan applications should include the required documents, such as land lease or ownership documents for setting up the unit or machinery, registration papers, and required government clearances.",
+            "quote": "to the banks along with all the requisite documents required for loan applications\nsuch  as  lease/ownership  documents  of  land  for  setting  up  the  unit/machinery,\nregistration and necessary Government clearances, etc.",
+            "page": 29,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        ],
+        "apply": [],
+        "after": [
+          {
+            "id": "grant-adjustment-after-three-years",
+            "plain": "If the loan account stays standard for three years and the unit is operational, the grant is adjusted in the beneficiary’s bank account. If the account becomes NPA before three years, the bank adjusts the grant toward repayment.",
+            "quote": "If after a period of three years from the disbursement of last tranche of the loan,\nthe  beneficiary  account  is  still  standard,  and  the  unit  is  operational,  this  grant\namount would be adjusted in the bank account of the beneficiary. If the account\nbecomes NPA prior to three years from the date of disbursement of the loan, the\ngrant  amount  would  be  adjusted  by  the  Bank  towards  repayment  by  the\nbeneficiary.",
+            "page": 29,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        ],
+        "good_to_know": [
+          {
+            "id": "individual-land-cost-exclusion",
+            "plain": "Land cost cannot be counted as part of the project cost. Built or leased/rented workshed cost can be included, but rented workshed cost only counts for up to 3 years.",
+            "quote": "x)  Cost of the land should not be included in the Project cost. Cost of\nthe  ready  built  as  well  as  long  lease  or  rental  workshed  could  be\nincluded in the project cost. Lease rental of workshed to be included\nin the project cost should be for a maximum period of 3 years only.",
+            "page": 7,
+            "url": "https://pmfme.mofpi.gov.in/newsletters/docs/SchemeGuidelines.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pm-svanidhi",
+      "title": "PM SVANidhi",
+      "name": "PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)",
+      "category": "Livelihood",
+      "summary": "Working-capital support for street vendors in covered areas.",
+      "authority": "Ministry of Housing and Urban Affairs",
+      "sourceUrl": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf",
+      "version": 2,
+      "conditions": [
+        {
+          "id": "is_street_vendor",
+          "tests": [
+            {
+              "key": "is_street_vendor",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "svanidhi-street-vendor-definition",
+            "plain": "A street vendor is someone who sells everyday goods, food or services to the public on a street, footpath, park or other public place, from a temporary stall or by moving around. Hawkers and pheriwalas count.",
+            "quote": "A ‘Street Vendor’ means a person engaged in vending of articles, good, wares, food items or merchandise of everyday use\nor offering services to the general public in a street lane, side walk, footpath, pavement, park or any other public place or\nprivate area from a temporary built-up structure or by moving from place to place and includes hawkers, peddler, squatter, and\nall other synonyms terms which may be local or region specific",
+            "page": 11,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          }
+        },
+        {
+          "id": "vends_in_covered_area",
+          "tests": [
+            {
+              "key": "vends_in_town_or_peri_urban",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "svanidhi-target-beneficiaries",
+            "plain": "The scheme is for street vendors who sell in towns and cities, including census towns and areas around cities. Each State decides how it identifies eligible vendors.",
+            "quote": "The target beneficiaries of the scheme are street vendors vending in various city-regions. The\nState/  UTs  may  adopt  suitable  methodology  for  identifying  eligible  vendors  to  ensure\ncomprehensive coverage.",
+            "page": 3,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          }
+        },
+        {
+          "id": "local_scheme_coverage",
+          "tests": [
+            {
+              "key": "local_scheme_coverage_confirmed",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "svanidhi-coverage",
+            "plain": "The scheme covers States and UTs that have made rules under the Street Vendors Act, 2014. It is also being extended step by step to census towns and areas around cities.",
+            "quote": "The scheme extends to all the States/UTs which have notified rules and schemes under Street\nVendors (Protection of Livelihood and Regulation of Street Vending) Act,2014. Further, the\nscheme is extended to City-Region i.e., census towns, peri urban areas, etc in graded manner\nfor providing scheme benefits seamlessly, so as to establish cities as “growth hubs”.",
+            "page": 3,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [
+          {
+            "id": "svanidhi-loan-tranches",
+            "plain": "Vendors can get loans without any security, in three steps: up to ₹15,000 (repay in 12 months), then up to ₹25,000 (18 months), then up to ₹50,000 (36 months).",
+            "quote": "SVs will be eligible for collateral free working capital term loan in three tranches:\n\n1.  1st tranche loan of up to ₹15,000 to be repaid in 12 months,\n2.  2nd tranche loan of up to ₹25,000 to be repaid in 18 months and\n3.  3rd tranche loan of up to ₹50,000 to be repaid in 36 months",
+            "page": 4,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          },
+          {
+            "id": "svanidhi-interest-subsidy",
+            "plain": "Vendors who take the loan get a 7% a year interest subsidy, paid into their account every three months.",
+            "quote": "The vendors, availing loan under the scheme, are eligible to get an interest subsidy at 7% per\nannum. The interest  subsidy  amount will be credited into the borrower’s account  quarterly.",
+            "page": 4,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          },
+          {
+            "id": "svanidhi-credit-card",
+            "plain": "Vendors who have repaid their second loan and qualify for the third can also get a UPI-linked RuPay credit card, starting at a ₹10,000 limit and rising to ₹30,000, valid for 5 years.",
+            "quote": "A UPI linked RuPay Credit Card will be available as an additional facility for PM SVANidhi\nbeneficiaries  who  have  successfully  repaid  their  2nd  tranche  loan  and  are  eligible  for  3rd\ntranche loan under the PM SVANidhi Scheme.\nThis card will be a domestic card and initially the credit limit will be ₹10,000 which will be\ngradually increased to ₹30,000, the card will be valid for a period of 5 years.",
+            "page": 5,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          }
+        ],
+        "documents": [],
+        "apply": [
+          {
+            "id": "svanidhi-certificate-or-recommendation",
+            "plain": "In towns, the town vending committee or the urban local body gives the vendor a Certificate of Vending, ID card or Letter of Recommendation. In census towns and areas around cities, the Block Development Office gives a Letter of Recommendation after checking. This should be done within 15 days of applying.",
+            "quote": "a)  In  statutory  towns,  the  Certificate  of  Vending  (CoV)/Identity  Card/Letter  of\n\nRecommendation (LoR) to the street vendors will be issued by TVC/ ULBs.\n\nb)  For  census  towns  and  peri  urban  areas,  the  Letter  of  Recommendation  (LoR)  to  the\nstreet vendors will be issued by Block Development Offices after due verification as\nper Annexure A.\n\nc)  The  verification  and  issuance  of  LoR  shall  be  completed  within  15  days  of  the\n\nsubmission of application.",
+            "page": 3,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          }
+        ],
+        "after": [
+          {
+            "id": "svanidhi-next-tranche",
+            "plain": "Repaying on time or early makes the vendor eligible for the next, bigger loan. There is no penalty for repaying early.",
+            "quote": "Upon timely or early repayment of a tranche, vendors will be eligible for the next tranche of\nworking capital term loans, with the enhanced limit. For repayment before the scheduled date,\nno prepayment penalty will be charged from the vendor.",
+            "page": 4,
+            "url": "https://www.mohua.gov.in/static/uploads/2026/01/bde957bc3a87fb001c05ddd09484edda.pdf"
+          }
+        ],
+        "good_to_know": []
+      }
+    },
+    {
+      "slug": "pmuy",
+      "title": "Ujjwala Yojana",
+      "name": "Pradhan Mantri Ujjwala Yojana (free LPG connection)",
+      "category": "Household",
+      "summary": "LPG connection screening for women in qualifying households.",
+      "authority": "Ministry of Petroleum and Natural Gas",
+      "sourceUrl": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf",
+      "version": 2,
+      "conditions": [
+        {
+          "id": "adult_woman",
+          "tests": [
+            {
+              "key": "is_woman",
+              "operator": "==",
+              "expected": "true"
+            },
+            {
+              "key": "age",
+              "operator": ">=",
+              "expected": "18"
+            }
+          ],
+          "evidence": {
+            "id": "pmuy-adult-woman",
+            "plain": "Only women aged 18 or more can apply for the Ujjwala connection.",
+            "quote": "Only Adult women (18 Yrs & above) is\neligible to apply for PMUY Connection",
+            "page": 1,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          }
+        },
+        {
+          "id": "indian_citizen",
+          "tests": [
+            {
+              "key": "is_indian_citizen",
+              "operator": "==",
+              "expected": "true"
+            },
+            {
+              "key": "resides_in_india",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "pmuy-citizen",
+            "plain": "The applicant declares she is an Indian citizen living in India.",
+            "quote": "That I am an Indian  citizen and residing in India.",
+            "page": 2,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          }
+        },
+        {
+          "id": "no_lpg_in_household",
+          "tests": [
+            {
+              "key": "household_has_lpg_or_png",
+              "operator": "==",
+              "expected": "false"
+            },
+            {
+              "key": "household_previously_had_gas",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "pmuy-no-existing-connection",
+            "plain": "No one in the household -- the family living together and sharing one kitchen -- may already have, or have had, an LPG connection from a government oil company or a piped gas connection.",
+            "quote": "That neither I, nor any other member of the household (household means a family consisting of all members reﬂecting in the family composition document living\ntogether in a dwelling unit having common kitchen),possess/possessed any LPG connection from PSU Oil Companies or Piped Natural Gas Connection for domestic use\nin our dwelling unit.  (‘Households’ having Piped Natural Gas connection are not entitled for subsidized LPG).",
+            "page": 2,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          }
+        },
+        {
+          "id": "gives_deprivation_declaration",
+          "tests": [
+            {
+              "key": "will_give_deprivation_declaration",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "pmuy-deprivation-declaration",
+            "plain": "The applicant fills in a Deprivation Declaration form (about the household being poor) and agrees that the details can be checked, including at home.",
+            "quote": "That I have understood and ﬁlled in the Deprivation Declaration form and give my consent for veriﬁcation (including physical veriﬁcation) of the particulars mentioned\ntherein.",
+            "page": 2,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [
+          {
+            "id": "pmuy-free-connection",
+            "plain": "Beneficiaries get an LPG connection with no deposit: the cylinder deposit, regulator, hose, gas card booklet and installation are covered. The first refill and the stove are also free. Nothing has to be paid for these.",
+            "quote": "Under PMUY, beneﬁciaries receive a deposit-free LPG connection that covers the security deposit of cylinder, pressure regulator, suraksha hose, Domestic Gas Consumer Card (DGCC)\nbooklet, and installation charges. In addition, the ﬁrst reﬁll and stove are also provided free of cost. Beneﬁciaries are not required to make any payment for these beneﬁts.",
+            "page": 1,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          },
+          {
+            "id": "pmuy-cylinder-choice",
+            "plain": "You can choose a 14.2 kg single cylinder, a 5 kg single cylinder, or two 5 kg cylinders.",
+            "quote": "Beneﬁciaries have the ﬂexibility to choose from a 14.2 kg single bottle connection, a 5 kg single bottle connection, or a 5 kg double bottle connection.",
+            "page": 1,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          }
+        ],
+        "documents": [],
+        "apply": [
+          {
+            "id": "pmuy-deprivation-declaration",
+            "plain": "The applicant fills in a Deprivation Declaration form (about the household being poor) and agrees that the details can be checked, including at home.",
+            "quote": "That I have understood and ﬁlled in the Deprivation Declaration form and give my consent for veriﬁcation (including physical veriﬁcation) of the particulars mentioned\ntherein.",
+            "page": 2,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          }
+        ],
+        "after": [],
+        "good_to_know": [
+          {
+            "id": "pmuy-no-existing-connection",
+            "plain": "No one in the household -- the family living together and sharing one kitchen -- may already have, or have had, an LPG connection from a government oil company or a piped gas connection.",
+            "quote": "That neither I, nor any other member of the household (household means a family consisting of all members reﬂecting in the family composition document living\ntogether in a dwelling unit having common kitchen),possess/possessed any LPG connection from PSU Oil Companies or Piped Natural Gas Connection for domestic use\nin our dwelling unit.  (‘Households’ having Piped Natural Gas connection are not entitled for subsidized LPG).",
+            "page": 2,
+            "url": "https://www.pmuy.gov.in/documents/Ujjwala-KYC_englishnew.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "apy",
+      "title": "Atal Pension Yojana",
+      "name": "Atal Pension Yojana",
+      "category": "Pension",
+      "summary": "An entry check for the contributory pension scheme.",
+      "authority": "Department of Financial Services, Ministry of Finance",
+      "sourceUrl": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf",
+      "version": 1,
+      "conditions": [
+        {
+          "id": "citizen_with_savings_account",
+          "tests": [
+            {
+              "key": "is_indian_citizen",
+              "operator": "==",
+              "expected": "true"
+            },
+            {
+              "key": "has_savings_bank_account",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "apy-eligibility",
+            "plain": "Any Indian citizen with a savings bank account can join. You must be at least 18 and at most 40 years old to join.",
+            "quote": "APY is open to all citizens of India who have a savings bank account. The minimum age of joining APY is 18 years and\n\nmaximum age is 40 years.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+          }
+        },
+        {
+          "id": "age_18_to_40",
+          "tests": [
+            {
+              "key": "age",
+              "operator": ">=",
+              "expected": "18"
+            },
+            {
+              "key": "age",
+              "operator": "<=",
+              "expected": "40"
+            }
+          ],
+          "evidence": {
+            "id": "apy-eligibility",
+            "plain": "Any Indian citizen with a savings bank account can join. You must be at least 18 and at most 40 years old to join.",
+            "quote": "APY is open to all citizens of India who have a savings bank account. The minimum age of joining APY is 18 years and\n\nmaximum age is 40 years.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+          }
+        },
+        {
+          "id": "never_income_tax_payer",
+          "tests": [
+            {
+              "key": "ever_paid_income_tax",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "apy-income-tax-exclusion",
+            "plain": "Since 1 October 2022, anyone who pays income tax, or has ever paid it, cannot join.",
+            "quote": "From 1st October,  2022, any citizen who is or has been an income-tax payer, is not eligible to join APY.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [
+          {
+            "id": "apy-pension-amount",
+            "plain": "Each member gets a government-guaranteed pension of Rs. 1000, 2000, 3000, 4000 or 5000 a month after turning 60, for the rest of their life.",
+            "quote": "(i) Central Government guaranteed minimum pension amount:\n\n     Each  subscriber  under  APY  shall  receive  a  Central  Government  guaranteed  minimum  pension  of  Rs.  1000  per\n\nmonth or Rs. 2000 per month or Rs. 3000 per month or Rs. 4000 per month or Rs. 5000 per month, after the age of\n\n60 years until death;",
+            "page": 1,
+            "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+          },
+          {
+            "id": "apy-spouse-pension",
+            "plain": "After the member dies, their husband or wife gets the same pension for the rest of their life.",
+            "quote": "(ii) Central Government guaranteed minimum pension amount to the spouse:\n\n  After the subscriber’s demise, the spouse of the subscriber shall be entitled to receive the same pension amount\n\nas that of the subscriber until the death of the spouse;",
+            "page": 1,
+            "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+          },
+          {
+            "id": "apy-nominee",
+            "plain": "After both the member and their husband or wife die, the nominee gets the money saved up to when the member turned 60.",
+            "quote": "(iii) Return of the pension wealth to the nominee of the subscriber:\n\n      After the demise of both,  the subscriber and the spouse, the nominee of the subscriber shall be entitled to receive\n\nthe pension wealth, as accumulated till the age of  60 years  of the subscriber.",
+            "page": 1,
+            "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+          }
+        ],
+        "documents": [],
+        "apply": [],
+        "after": [
+          {
+            "id": "apy-contribution",
+            "plain": "Money is taken automatically from the member's savings account every month, quarter or half-year. Payments continue from joining until age 60.",
+            "quote": "The subscriber’s contributions to APY shall be made through the facility of ‘auto-debit’ of the prescribed contribution amount\n\nfrom the savings bank account of the subscriber in monthly, quarterly or half-yearly frequency. The subscribers are required\n\nto contribute the prescribed contribution amount from the age of joining APY till the age of 60 years.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+          }
+        ],
+        "good_to_know": []
+      }
+    },
+    {
+      "slug": "nsap",
+      "title": "IGNOAPS",
+      "name": "National Social Assistance Programme -- Indira Gandhi National Old Age Pension (IGNOAPS)",
+      "category": "Pension",
+      "summary": "Old-age pension screening within the National Social Assistance Programme.",
+      "authority": "Ministry of Rural Development",
+      "sourceUrl": "http://www.esomsa.hp.gov.in/sites/default/files/NSAP.pdf",
+      "version": 1,
+      "conditions": [
+        {
+          "id": "below_poverty_line",
+          "tests": [
+            {
+              "key": "household_is_bpl",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "nsap-bpl-category",
+            "plain": "These pensions are for people from poor (Below Poverty Line) households.",
+            "quote": "The assistance under the sub-schemes of NSAP are applicable for persons belonging\n\nto  Below  Poverty  Line  (BPL)  category.  The  other  eligibility  criteria  and  the  scale  of\n\nassistance under the sub-schemes of NSAP are as follows:",
+            "page": 12,
+            "url": "http://www.esomsa.hp.gov.in/sites/default/files/NSAP.pdf"
+          }
+        },
+        {
+          "id": "age_60_or_more",
+          "tests": [
+            {
+              "key": "age",
+              "operator": ">=",
+              "expected": "60"
+            }
+          ],
+          "evidence": {
+            "id": "ignoaps-age-and-amount",
+            "plain": "The old-age pension is for people aged 60 or more. This document says the central pension is Rs. 200 a month from 60 to 79 years, and Rs. 500 a month from 80 years.",
+            "quote": "Indira  Gandhi  National  Old  Age  Pension  Scheme  (IGNOAPS):  The\n\neligible  age  for  IGNOAPS  is  60  years.  The  pension  is  Rs.200  p.m.  for\n\npersons  between  60  years  and  79  years.  For  persons  who  are  80  years  and\n\nabove the pension is Rs.500/- per month.",
+            "page": 12,
+            "url": "http://www.esomsa.hp.gov.in/sites/default/files/NSAP.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [],
+        "documents": [],
+        "apply": [
+          {
+            "id": "nsap-gram-panchayat-identifies",
+            "plain": "The Gram Panchayat or Municipality plays the central role in finding new beneficiaries, using the BPL list, and should reach out to households.",
+            "quote": "For the identification of new beneficiaries, Gram Panchayats / Municipalities should\n\nbe  given  the  central  role.  Elected  heads  and  representatives  should  be  sensitized  on  the\n\ncriteria and processes of NSAP.  Based on the available BPL list, the beneficiaries should\n\nbe  proactively  identified  by  reaching  out  to  their  households.",
+            "page": 16,
+            "url": "http://www.esomsa.hp.gov.in/sites/default/files/NSAP.pdf"
+          },
+          {
+            "id": "nsap-application-form",
+            "plain": "An application is needed to join. States should make simple application forms in the local language available free of cost.",
+            "quote": "Applications  are  needed  for  enrollment  of  a  new  beneficiary.  A  specimen  form  is\n\ngiven  as  Annexe  III.  The  States  may  prepare  a  simple  format  in  the  local  language  and\n\nmake the application forms available widely, free of cost.",
+            "page": 16,
+            "url": "http://www.esomsa.hp.gov.in/sites/default/files/NSAP.pdf"
+          }
+        ],
+        "after": [],
+        "good_to_know": [
+          {
+            "id": "nsap-help-with-documents",
+            "plain": "Eligible people should be helped to get the documents they need. If they don't have documents, the local government can certify them.",
+            "quote": "This  would  include  providing  support  to  the  eligible  people  in  obtaining  their\n\ndocuments to establish their eligibility. States may device methods for certification by local\n\ngovernments, if documents are not available with the eligible persons.",
+            "page": 10,
+            "url": "http://www.esomsa.hp.gov.in/sites/default/files/NSAP.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pm-kmy",
+      "title": "PM Kisan Maan-Dhan",
+      "name": "Pradhan Mantri Kisan Maan-Dhan Yojana (farmer pension)",
+      "category": "Pension",
+      "summary": "A contributory pension screen for small and marginal farmers.",
+      "authority": "Department of Agriculture, Cooperation & Farmers Welfare",
+      "sourceUrl": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf",
+      "version": 1,
+      "conditions": [
+        {
+          "id": "small_or_marginal_farmer",
+          "tests": [
+            {
+              "key": "owns_cultivable_land",
+              "operator": "==",
+              "expected": "true"
+            },
+            {
+              "key": "land_hectares",
+              "operator": "<=",
+              "expected": "2"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-smf-definition",
+            "plain": "A small or marginal farmer is one who owns farmland of up to 2 hectares, as shown in the state's land records.",
+            "quote": "“Small and Marginal Farmer” or “SMF” means a farmer who owns cultivable\n\nland upto 2 hectare as per land records of the concerned State/UT”.",
+            "page": 2,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        },
+        {
+          "id": "age_18_to_40",
+          "tests": [
+            {
+              "key": "age",
+              "operator": ">=",
+              "expected": "18"
+            },
+            {
+              "key": "age",
+              "operator": "<=",
+              "expected": "40"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-eligibility",
+            "plain": "Small and marginal farmers aged 18 to 40, anywhere in India, can join unless they fall under the exclusions.",
+            "quote": "All Small and Marginal Farmers (SMFs) in all States and Union Territories of the country,\nwho are of the age of 18 years and above and upto the age of 40 years, and who do not\nfall within the purview of the exclusion criteria as mentioned in the guidelines, are eligible\nto avail the benefits of this Scheme by joining it.",
+            "page": 3,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        },
+        {
+          "id": "not_in_other_social_security",
+          "tests": [
+            {
+              "key": "in_other_pension_or_social_security_scheme",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-exclusion-other-schemes",
+            "plain": "Farmers already in NPS, ESIC or EPFO, or who have joined the PM-SYM or PM-LVM pension schemes, cannot join.",
+            "quote": "SMFs covered under any other statuary social security schemes such as National\nPension  Scheme  (NPS),  Employees’  State  Insurance  Corporation  scheme,\nEmployees’ Fund Organization Scheme etc.\nFarmers who have opted for Pradhan Mantri Shram Yogi Maan Dhan Yojana (PM-\nSYM) administered by the Ministry of Labour & Employment\nFarmers  who  have  opted  for  Pradhan  Mantri  Laghu  Vyapari  Maan-dhan  Yojana\n(PM-LVM) administered by the Ministry of Labour & Employment",
+            "page": 3,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        },
+        {
+          "id": "not_institutional_land",
+          "tests": [
+            {
+              "key": "is_institutional_landholder",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-exclusion-higher-status",
+            "plain": "These people cannot join: institutions that hold land; current or former holders of constitutional posts, ministers, MPs, MLAs, mayors and district panchayat chairpersons; serving or retired government and PSU employees (except Group D and similar staff); people who paid income tax last year; and practising doctors, engineers, lawyers, CAs and architects.",
+            "quote": "Further, the following categories of beneficiaries of higher economic status shall\nnot be eligible for benefits under the scheme:\n\n(a) All Institutional Land holders; and\n(b) Former and present holders of constitutional posts\n(c)  Former and present Ministers/ State Ministers and former/present  Members\nof Lok Sabha/ Rajya Sabha/ State Legislative Assemblies/ State Legislative\nCouncils,former and present Mayors of Municipal Corporations, former and\npresent Chairpersons of District Panchayats.\n(d)  All serving or retired officers and employees of Central/ State Government\nMinistries/  Offices/Departments and their field units, Central or State PSEs and\nAttached offices/ Autonomous Institutions under Government as well as regular\nemployees of the Local Bodies (Excluding Multi Tasking Staff / Class IV/Group D\nemployees)\n(e)  All Persons who paid Income Tax in last assessment year.\n(f) Professionals like Doctors, Engineers, Lawyers, Chartered Accountants, and\nArchitects registered with Professional bodies and carrying out profession by\nundertaking practice.",
+            "page": 3,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        },
+        {
+          "id": "not_constitutional_or_elected",
+          "tests": [
+            {
+              "key": "holds_or_held_public_office",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-exclusion-higher-status",
+            "plain": "These people cannot join: institutions that hold land; current or former holders of constitutional posts, ministers, MPs, MLAs, mayors and district panchayat chairpersons; serving or retired government and PSU employees (except Group D and similar staff); people who paid income tax last year; and practising doctors, engineers, lawyers, CAs and architects.",
+            "quote": "Further, the following categories of beneficiaries of higher economic status shall\nnot be eligible for benefits under the scheme:\n\n(a) All Institutional Land holders; and\n(b) Former and present holders of constitutional posts\n(c)  Former and present Ministers/ State Ministers and former/present  Members\nof Lok Sabha/ Rajya Sabha/ State Legislative Assemblies/ State Legislative\nCouncils,former and present Mayors of Municipal Corporations, former and\npresent Chairpersons of District Panchayats.\n(d)  All serving or retired officers and employees of Central/ State Government\nMinistries/  Offices/Departments and their field units, Central or State PSEs and\nAttached offices/ Autonomous Institutions under Government as well as regular\nemployees of the Local Bodies (Excluding Multi Tasking Staff / Class IV/Group D\nemployees)\n(e)  All Persons who paid Income Tax in last assessment year.\n(f) Professionals like Doctors, Engineers, Lawyers, Chartered Accountants, and\nArchitects registered with Professional bodies and carrying out profession by\nundertaking practice.",
+            "page": 3,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        },
+        {
+          "id": "not_government_employee",
+          "tests": [
+            {
+              "key": "is_government_employee",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-exclusion-higher-status",
+            "plain": "These people cannot join: institutions that hold land; current or former holders of constitutional posts, ministers, MPs, MLAs, mayors and district panchayat chairpersons; serving or retired government and PSU employees (except Group D and similar staff); people who paid income tax last year; and practising doctors, engineers, lawyers, CAs and architects.",
+            "quote": "Further, the following categories of beneficiaries of higher economic status shall\nnot be eligible for benefits under the scheme:\n\n(a) All Institutional Land holders; and\n(b) Former and present holders of constitutional posts\n(c)  Former and present Ministers/ State Ministers and former/present  Members\nof Lok Sabha/ Rajya Sabha/ State Legislative Assemblies/ State Legislative\nCouncils,former and present Mayors of Municipal Corporations, former and\npresent Chairpersons of District Panchayats.\n(d)  All serving or retired officers and employees of Central/ State Government\nMinistries/  Offices/Departments and their field units, Central or State PSEs and\nAttached offices/ Autonomous Institutions under Government as well as regular\nemployees of the Local Bodies (Excluding Multi Tasking Staff / Class IV/Group D\nemployees)\n(e)  All Persons who paid Income Tax in last assessment year.\n(f) Professionals like Doctors, Engineers, Lawyers, Chartered Accountants, and\nArchitects registered with Professional bodies and carrying out profession by\nundertaking practice.",
+            "page": 3,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        },
+        {
+          "id": "not_income_tax_payer",
+          "tests": [
+            {
+              "key": "paid_income_tax_last_year",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-exclusion-higher-status",
+            "plain": "These people cannot join: institutions that hold land; current or former holders of constitutional posts, ministers, MPs, MLAs, mayors and district panchayat chairpersons; serving or retired government and PSU employees (except Group D and similar staff); people who paid income tax last year; and practising doctors, engineers, lawyers, CAs and architects.",
+            "quote": "Further, the following categories of beneficiaries of higher economic status shall\nnot be eligible for benefits under the scheme:\n\n(a) All Institutional Land holders; and\n(b) Former and present holders of constitutional posts\n(c)  Former and present Ministers/ State Ministers and former/present  Members\nof Lok Sabha/ Rajya Sabha/ State Legislative Assemblies/ State Legislative\nCouncils,former and present Mayors of Municipal Corporations, former and\npresent Chairpersons of District Panchayats.\n(d)  All serving or retired officers and employees of Central/ State Government\nMinistries/  Offices/Departments and their field units, Central or State PSEs and\nAttached offices/ Autonomous Institutions under Government as well as regular\nemployees of the Local Bodies (Excluding Multi Tasking Staff / Class IV/Group D\nemployees)\n(e)  All Persons who paid Income Tax in last assessment year.\n(f) Professionals like Doctors, Engineers, Lawyers, Chartered Accountants, and\nArchitects registered with Professional bodies and carrying out profession by\nundertaking practice.",
+            "page": 3,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        },
+        {
+          "id": "not_practising_professional",
+          "tests": [
+            {
+              "key": "is_practising_professional",
+              "operator": "==",
+              "expected": "false"
+            }
+          ],
+          "evidence": {
+            "id": "pmkmy-exclusion-higher-status",
+            "plain": "These people cannot join: institutions that hold land; current or former holders of constitutional posts, ministers, MPs, MLAs, mayors and district panchayat chairpersons; serving or retired government and PSU employees (except Group D and similar staff); people who paid income tax last year; and practising doctors, engineers, lawyers, CAs and architects.",
+            "quote": "Further, the following categories of beneficiaries of higher economic status shall\nnot be eligible for benefits under the scheme:\n\n(a) All Institutional Land holders; and\n(b) Former and present holders of constitutional posts\n(c)  Former and present Ministers/ State Ministers and former/present  Members\nof Lok Sabha/ Rajya Sabha/ State Legislative Assemblies/ State Legislative\nCouncils,former and present Mayors of Municipal Corporations, former and\npresent Chairpersons of District Panchayats.\n(d)  All serving or retired officers and employees of Central/ State Government\nMinistries/  Offices/Departments and their field units, Central or State PSEs and\nAttached offices/ Autonomous Institutions under Government as well as regular\nemployees of the Local Bodies (Excluding Multi Tasking Staff / Class IV/Group D\nemployees)\n(e)  All Persons who paid Income Tax in last assessment year.\n(f) Professionals like Doctors, Engineers, Lawyers, Chartered Accountants, and\nArchitects registered with Professional bodies and carrying out profession by\nundertaking practice.",
+            "page": 3,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [
+          {
+            "id": "pmkmy-pension",
+            "plain": "Small and marginal farmers who own land get a pension of Rs. 3000 a month after turning 60, whether they are men or women.",
+            "quote": "The Pradhan Mantri Kisan Maan-Dhan Yojana (PM-KMY) provides\nfor  an  assured  monthly  pension  of  Rs.  3000/-  to  all  land  holding  Small  and  Marginal\nFarmers (SMFs), whether male or female, on their attaining the age of 60 years.",
+            "page": 1,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          },
+          {
+            "id": "pmkmy-government-match",
+            "plain": "The central government puts in the same amount as the farmer pays.",
+            "quote": "The Central Government through the Department  of Agriculture Cooperation and\nFarmers  Welfare  shall  also  contribute  an  equal  amount  as  contributed  by  the\neligible subscriber, to the pension Fund.",
+            "page": 4,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        ],
+        "documents": [],
+        "apply": [],
+        "after": [
+          {
+            "id": "pmkmy-contribution",
+            "plain": "The farmer pays between Rs. 55 and Rs. 200 a month, depending on their age when they join.",
+            "quote": "The amount of the monthly contribution shall range between Rs.55 to Rs.200 per\nmonth depending upon the age of entry of the farmers into the Scheme, as per\nthe following contribution chart:",
+            "page": 5,
+            "url": "https://pmkisan.gov.in/Documents/PMKMYOperationalGuidelines.pdf"
+          }
+        ],
+        "good_to_know": []
+      }
+    },
+    {
+      "slug": "pmjjby",
+      "title": "PM Jeevan Jyoti Bima",
+      "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana (life insurance)",
+      "category": "Insurance",
+      "summary": "Life insurance screening through a bank or post office account.",
+      "authority": "Department of Financial Services, Ministry of Finance",
+      "sourceUrl": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf",
+      "version": 1,
+      "conditions": [
+        {
+          "id": "has_bank_account",
+          "tests": [
+            {
+              "key": "has_bank_or_post_office_account",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "pmjjby-scope",
+            "plain": "Anyone aged 18 to 50 with an account in a participating bank or Post office can join. A person with several accounts can join through only one account. Aadhaar is the main identity proof for the account.",
+            "quote": "Scope of coverage: All individual account holders of participating banks/\nPost  office  in  the  age  group  of  18  to  50  years  are  entitled  to  join.  In  case  of\nmultiple  bank  /  Post  office  accounts  held  by  an  individual  in  one  or  different\nbanks/  Post  office,  the  person  is  eligible  to  join  the  scheme  through  one  bank/\nPost office account only. Aadhaar is the primary KYC for the bank / Post office\naccount.",
+            "page": 1,
+            "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+          }
+        },
+        {
+          "id": "age_18_to_50",
+          "tests": [
+            {
+              "key": "age",
+              "operator": ">=",
+              "expected": "18"
+            },
+            {
+              "key": "age",
+              "operator": "<=",
+              "expected": "50"
+            }
+          ],
+          "evidence": {
+            "id": "pmjjby-eligibility",
+            "plain": "Account holders aged from 18 (completed) to 50 who agree to join and allow auto-debit of the premium are enrolled.",
+            "quote": "Individual  bank/  Post  office  account  holders  of  the  participating  banks/  Post\noffice aged between 18 years (completed) and 50 years (age nearer birthday) who\ngive  their  consent  to join  /  enable  auto-debit,  as per  the above  modality,  will  be\nenrolled into the scheme.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+          }
+        },
+        {
+          "id": "consents_to_auto_debit",
+          "tests": [
+            {
+              "key": "consents_to_auto_debit",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "pmjjby-eligibility",
+            "plain": "Account holders aged from 18 (completed) to 50 who agree to join and allow auto-debit of the premium are enrolled.",
+            "quote": "Individual  bank/  Post  office  account  holders  of  the  participating  banks/  Post\noffice aged between 18 years (completed) and 50 years (age nearer birthday) who\ngive  their  consent  to join  /  enable  auto-debit,  as per  the above  modality,  will  be\nenrolled into the scheme.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [
+          {
+            "id": "pmjjby-benefit",
+            "plain": "Rs. 2 lakh is paid when the member dies, for any reason.",
+            "quote": "Benefits: Rs.2 lakh is payable on member’s death due to any cause.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+          }
+        ],
+        "documents": [],
+        "apply": [],
+        "after": [
+          {
+            "id": "pmjjby-premium",
+            "plain": "The premium is Rs. 436 a year per member, taken from the bank or Post office account by auto-debit in one instalment.",
+            "quote": "Premium:  Rs.436/-  per  annum  per  member.  The  premium  will  be\ndeducted  from  the  account  holder’s  bank  /  Post  office  account  through  ‘auto\ndebit’ facility in one instalment, as per the option given, at the time of enrolment\nunder the scheme.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+          }
+        ],
+        "good_to_know": [
+          {
+            "id": "pmjjby-lien-period",
+            "plain": "For people joining for the first time, death from a cause other than an accident in the first 30 days after joining is not covered.",
+            "quote": "For  subscribers  enrolling  for  the  first  time  on  or  after  1st  June  2021,  insurance\ncover shall not be available for death (other than due to accident) occurring during\nthe first 30 days from the date of enrolment into the scheme (lien period) and in\ncase  of death (other  than due to accident) during lien period, no claim would be\nadmissible.",
+            "page": 1,
+            "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+          },
+          {
+            "id": "pmjjby-termination-age",
+            "plain": "The cover ends at age 55. A person cannot join after age 50.",
+            "quote": "1)  On attaining age 55 years (age near birth day) subject to annual renewal up\nto that date (entry, however, will not be possible beyond the age of 50 years).",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "pmsby",
+      "title": "PM Suraksha Bima",
+      "name": "Pradhan Mantri Suraksha Bima Yojana (accident insurance)",
+      "category": "Insurance",
+      "summary": "Accident insurance screening through a bank or post office account.",
+      "authority": "Department of Financial Services, Ministry of Finance",
+      "sourceUrl": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf",
+      "version": 1,
+      "conditions": [
+        {
+          "id": "has_bank_account",
+          "tests": [
+            {
+              "key": "has_bank_or_post_office_account",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "pmsby-scope",
+            "plain": "Anyone aged 18 to 70 who has a bank or Post office account in a participating bank or Post office can join. A person with several accounts can join through only one account. Aadhaar is the main identity proof for the account.",
+            "quote": "Scope  of  coverage:  All  individual  bank/  Post  office  account  holders  in  the  age\ngroup of 18 to 70 years in participating banks/ Post office will be entitled to join. In\ncase of multiple bank/ Post office accounts held by an individual in one or different\nbanks/ Post office, the person would be eligible to join the scheme through one bank\n/  Post  office  account  only.  Aadhar  would  be  the  primary  KYC  for  the  bank/  Post\noffice account.",
+            "page": 1,
+            "url": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf"
+          }
+        },
+        {
+          "id": "age_18_to_70",
+          "tests": [
+            {
+              "key": "age",
+              "operator": ">=",
+              "expected": "18"
+            },
+            {
+              "key": "age",
+              "operator": "<=",
+              "expected": "70"
+            }
+          ],
+          "evidence": {
+            "id": "pmsby-eligibility",
+            "plain": "Account holders aged from 18 (completed) to 70 who agree to join and allow auto-debit of the premium are enrolled.",
+            "quote": "Eligibility Conditions: Individual bank/ Post office account holders of participating\nbanks/  Post  office  aged  between  18  years  (completed)  and  70  years  (age  nearer\nbirthday)  who  give  their  consent  to  join  /  enable  auto-debit,  as  per  the  above\nmodality, will be enrolled into the scheme.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf"
+          }
+        },
+        {
+          "id": "consents_to_auto_debit",
+          "tests": [
+            {
+              "key": "consents_to_auto_debit",
+              "operator": "==",
+              "expected": "true"
+            }
+          ],
+          "evidence": {
+            "id": "pmsby-eligibility",
+            "plain": "Account holders aged from 18 (completed) to 70 who agree to join and allow auto-debit of the premium are enrolled.",
+            "quote": "Eligibility Conditions: Individual bank/ Post office account holders of participating\nbanks/  Post  office  aged  between  18  years  (completed)  and  70  years  (age  nearer\nbirthday)  who  give  their  consent  to  join  /  enable  auto-debit,  as  per  the  above\nmodality, will be enrolled into the scheme.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf"
+          }
+        }
+      ],
+      "nextSteps": {
+        "benefits": [
+          {
+            "id": "pmsby-benefits",
+            "plain": "The insurance pays Rs. 2 lakh on death, or on total loss of both eyes, both hands or feet, or one eye and one hand or foot. It pays Rs. 1 lakh on total loss of sight of one eye, or loss of use of one hand or foot.",
+            "quote": "Benefits: As per the following table:\n\nTable of Benefits\n\na  Death\nb  Total and irrecoverable loss of both eyes or loss of use of\nboth hands or feet or loss of sight of one eye and loss of\nuse of hand or foot\n\nSum Insured\nRs. 2 Lakh\n\nRs. 2 Lakh\n\nc  Total and irrecoverable loss of sight of one eye or loss of\n\nRs. 1 Lakh\n\nuse of one hand or foot",
+            "page": 1,
+            "url": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf"
+          }
+        ],
+        "documents": [],
+        "apply": [],
+        "after": [
+          {
+            "id": "pmsby-premium",
+            "plain": "The premium is Rs. 20 a year per member. It is taken from the bank or Post office account by auto-debit in one instalment.",
+            "quote": "Premium: Rs. 20/- per annum per member. The premium will be deducted from the\naccount  holder’s  bank/  Post  office  account  through  ‘auto  debit’  facility  in  one\ninstalment",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf"
+          }
+        ],
+        "good_to_know": [
+          {
+            "id": "pmsby-termination",
+            "plain": "The cover ends at age 70, or if the bank or Post office account is closed or does not have enough money to pay the premium.",
+            "quote": "Termination of cover: The accident cover for the member shall terminate on any of\nthe following events and no benefit will be payable there under:\n\n1) On attaining age 70 years (age nearest birthday).\n\n2) Closure of account with the Bank/ Post office or insufficiency of balance to keep\nthe insurance in force.",
+            "page": 2,
+            "url": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf"
+          }
+        ]
+      }
+    }
+  ]
+}

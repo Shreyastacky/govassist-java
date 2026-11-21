@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frame :: head('Assessment results')}"></head>
+<body>
+<header th:replace="~{frame :: header}"></header>
+<main id="main" class="shell content">
+  <a th:if="${snapshot or saved}" class="back" th:href="@{/dashboard}">← Dashboard</a>
+  <a th:unless="${snapshot or saved}" class="back" th:href="@{/#schemes}">← Browse schemes</a>
+  <div class="page-heading result-heading">
+    <div>
+      <p class="kicker" th:text="${snapshot ? 'Saved assessment' : 'Eligibility check'}"></p>
+      <h1 th:text="${results.size() == 1 ? results[0].title() : 'Results across schemes'}"></h1>
+      <p th:if="${saved}" class="notice">Results saved for <strong th:text="${profile.label()}"></strong>.</p>
+      <p th:if="${snapshot}">This assessment shows the answers and evidence recorded when the check ran.</p>
+      <p th:unless="${saved or snapshot}">Guest results are available on this page. They are not saved.</p>
+    </div>
+    <div class="button-row">
+      <a th:if="${checkSlug != null and profile != null}" class="button outline" th:href="@{/check/{slug}(slug=${checkSlug},profile=${profile.id()})}">Edit answers</a>
+      <button th:if="${checkSlug != null and profile == null}" type="button" data-back class="button outline" hidden>Edit answers</button>
+      <a th:if="${checkSlug != null and profile == null}" class="button outline" th:href="@{/check/{slug}(slug=${checkSlug})}">Start a new check</a>
+    </div>
+  </div>
+  <div class="result-grid">
+    <section th:each="result : ${results}" class="result-panel" th:with="scheme=${schemesBySlug[result.slug()]}">
+      <div class="result-banner">
+        <span class="status" th:classappend="${result.verdict().style()}" th:text="${result.verdict().label()}"></span>
+        <span class="version" th:text="${'Rule version ' + result.version()}"></span>
+      </div>
+      <h2 th:if="${results.size() > 1}" th:text="${result.title()}"></h2>
+      <p class="result-note" th:if="${result.verdict().name() == 'OUTSIDE_SCOPE'}">This check covers individual units. Ask the scheme authority about group, cooperative or other routes.</p>
+      <p class="result-note" th:if="${result.verdict().name() == 'MATCH'}">The answers meet the rules in this catalogue. The scheme authority makes the final decision.</p>
+      <p class="result-note" th:if="${result.verdict().name() == 'NO_MATCH'}">At least one answer conflicts with a criterion below. Review the evidence or correct your answers.</p>
+      <p class="result-note" th:if="${result.verdict().name() == 'NEEDS_INFO'}">Supply the missing answers below to complete the check.</p>
+      <details class="result-section" th:open="${results.size() == 1 ? 'open' : null}">
+        <summary>Criteria and source excerpts</summary>
+        <div class="checks">
+          <div th:each="check : ${result.checks()}" class="check-line">
+            <span class="status small" th:classappend="${check.state().style()}" th:text="${check.state().label()}"></span>
+            <div><p th:text="${check.evidence().plain()}"></p>
+              <blockquote th:text="${check.evidence().quote()}"></blockquote>
+              <a th:href="${check.evidence().url() + '#page=' + check.evidence().page()}" th:text="${'Source PDF · page ' + check.evidence().page() + ' ↗'}"></a>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details class="result-section" th:if="${!result.missing().isEmpty()}">
+        <summary th:text="${'Missing answers (' + result.missing().size() + ')'}"></summary>
+        <ul><li th:each="key : ${result.missing()}" th:text="${questionsByKey[key] != null ? questionsByKey[key].ask() : key}"></li></ul>
+      </details>
+      <details class="result-section" th:if="${!result.answers().isEmpty()}">
+        <summary>Recorded answers</summary>
+        <dl class="answer-list"><th:block th:each="answer : ${result.answers()}">
+          <dt th:text="${questionsByKey[answer.key] != null ? questionsByKey[answer.key].label() : answer.key}"></dt>
+          <dd th:text="${answer.value == 'true' ? 'Yes' : (answer.value == 'false' ? 'No' : answer.value)}"></dd>
+        </th:block></dl>
+      </details>
+      <details class="result-section" th:if="${scheme != null and !snapshot and result.verdict().name() != 'OUTSIDE_SCOPE'}">
+        <summary>Benefits, documents and next steps</summary>
+        <div class="steps">
+          <div th:each="section : ${scheme.nextSteps()}">
+            <h3 th:text="${section.key == 'good_to_know' ? 'Conditions to note' : (section.key == 'after' ? 'After enrollment' : (section.key == 'apply' ? 'How to apply' : section.key))}"></h3>
+            <p th:if="${section.value.isEmpty()}">Check with the scheme authority for this information.</p>
+            <p th:each="item : ${section.value}"><span th:text="${item.plain()}"></span>
+              <a th:href="${item.url() + '#page=' + item.page()}" th:text="${'Page ' + item.page() + ' ↗'}"></a></p>
+          </div>
+          <p th:text="${scheme.authority()}"></p>
+          <a th:href="${scheme.sourceUrl()}">Open guideline ↗</a>
+        </div>
+      </details>
+    </section>
+  </div>
+</main>
+<footer th:replace="~{frame :: footer}"></footer>
+</body>
+</html>

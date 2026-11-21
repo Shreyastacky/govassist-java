@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frame :: head('Guideline library')}"></head>
+<body>
+<header th:replace="~{frame :: header}"></header>
+<main id="main" class="shell content">
+  <div class="page-heading">
+    <h1>Guideline library</h1>
+    <p>Search the passages used for scheme criteria, documents and next steps.</p>
+  </div>
+  <form th:action="@{/sources}" class="source-search dashboard-block" role="search">
+    <div><label for="q">Search passages</label><input id="q" name="q" th:value="${query}" type="search" maxlength="100" placeholder="e.g. bank account"></div>
+    <div><label for="scheme">Scheme</label>
+      <select id="scheme" name="scheme"><option value="all">All schemes</option>
+        <option th:each="scheme : ${schemes}" th:value="${scheme.slug()}" th:text="${scheme.title()}"
+                th:selected="${scheme.slug() == selectedScheme}"></option>
+      </select></div>
+    <button class="button primary">Search</button>
+  </form>
+  <p th:if="${groups.isEmpty()}" class="notice">No passages match your search. Try fewer words or a different scheme.</p>
+  <section th:each="group : ${groups}" class="source-group dashboard-block">
+    <h2 th:text="${group.scheme().title()}"></h2>
+    <a th:href="${group.scheme().sourceUrl()}" th:text="${group.scheme().authority() + ' ↗'}"></a>
+    <details th:each="item : ${group.evidence()}" class="result-section">
+      <summary th:text="${item.plain()}"></summary>
+      <blockquote th:text="${item.quote()}"></blockquote>
+      <a th:href="${item.url() + '#page=' + item.page()}" th:text="${'Source PDF · page ' + item.page() + ' ↗'}"></a>
+    </details>
+  </section>
+</main>
+<footer th:replace="~{frame :: footer}"></footer>
+</body>
+</html>

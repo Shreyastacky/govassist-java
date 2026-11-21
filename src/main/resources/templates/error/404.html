@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frame :: head('Page unavailable')}"></head>
+<body><header th:replace="~{frame :: header}"></header>
+<main id="main" class="shell content"><div class="page-heading"><h1>Page unavailable</h1>
+  <p>This scheme or saved assessment could not be found.</p>
+  <a class="button primary" th:href="@{/}">Browse schemes</a></div></main>
+<footer th:replace="~{frame :: footer}"></footer></body>
+</html>
