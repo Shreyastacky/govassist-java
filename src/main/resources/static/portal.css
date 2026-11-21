@@ -126,6 +126,11 @@ label { display: block; font-weight: 650; margin-bottom: 5px; }
 .check-line p { margin-bottom: 6px; font-weight: 620; }
 blockquote { margin: 0 0 7px; border-left: 3px solid #aabbac; padding: 5px 0 5px 12px; color: var(--muted); font: 1rem/1.48 var(--serif); white-space: pre-line; overflow-wrap: anywhere; }
 .check-line a, .steps a { font-size: .86rem; color: #315447; }
+.rule-trace { margin-top: 8px; font-size: .85rem; }
+.rule-trace ul { list-style: none; padding: 0; margin: 7px 0 0; }
+.rule-trace li { padding: 7px 9px; background: var(--wash); margin-bottom: 5px; border-radius: 4px; }
+.rule-trace li .status { margin-left: 6px; }
+.rule-values { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--muted); }
 .steps { padding-top: 12px; }
 .steps h3 { text-transform: capitalize; margin-bottom: 5px; }
 .answer-list { display: grid; grid-template-columns: 1.5fr 1fr; gap: 6px 12px; }

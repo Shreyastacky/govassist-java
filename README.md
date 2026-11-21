@@ -1,6 +1,6 @@
 # GovAssist Java
 
-GovAssist checks a person's answers against a documented set of criteria for eight Indian government schemes. The result explains which criteria were met, which failed, and which still need an answer. Each criterion links to the source PDF and page.
+GovAssist checks a person's answers against a documented set of criteria for eight Indian government schemes. Each result shows the answer, the rule it was compared with, and the source PDF page.
 
 The UCS553 edition is a standalone Java web application. It uses Spring Boot MVC, Thymeleaf, Spring Security, JDBC, and an embedded H2 database. The first build retrieves dependencies from Maven Central. After that, the packaged application runs locally without API keys or external services. Opening a linked government PDF requires internet access.
 
@@ -21,6 +21,7 @@ Open <http://127.0.0.1:8080>. To pick another port, append `--server.port=8081` 
 - Leave a question blank. Read the missing-answer list and the cited criteria in the result.
 - In **Sources**, filter excerpts by scheme and search terms.
 - Register with a fictional email such as `student@example.test`. Sign in, run a check, and open it again from the dashboard. Add a household profile to keep a second applicant's answers separate.
+- Open the same profile in two tabs. Save from one tab, then submit different answers from the other. The older form offers to reload the latest saved answers and leaves the new result intact.
 - The questionnaire can show questions and answer choices in English, Hindi, Punjabi, and Tamil. Navigation, validation messages, results, and source excerpts are in English.
 
 The application screens against a coursework snapshot. Scheme authorities make the final decision. The project uses typed forms and keyword search for its local demonstration.

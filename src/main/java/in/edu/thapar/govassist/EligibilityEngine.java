@@ -2,7 +2,7 @@ package in.edu.thapar.govassist;
 
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -37,7 +37,24 @@ public class EligibilityEngine {
         public String style() { return style; }
     }
 
-    public record Check(State state, Catalog.Evidence evidence) {}
+    public record Term(String key, Catalog.Operator operator, String expected, String actual, State state) {
+        public String required() { return operator.requirement(display(expected)); }
+
+        public String submitted() { return actual == null ? "Unanswered" : display(actual); }
+
+        private static String display(String value) {
+            return switch (value) {
+                case "true" -> "Yes";
+                case "false" -> "No";
+                case "individual" -> "Individual";
+                case "other" -> "Group or other entity";
+                default -> value;
+            };
+        }
+    }
+    public record Check(State state, Catalog.Evidence evidence, List<Term> terms) {
+        public Check { terms = terms == null ? List.of() : List.copyOf(terms); }
+    }
     public record Result(String slug, String title, int version, Verdict verdict, List<Check> checks,
                          List<String> missing, Map<String, String> answers) {}
     public record Input(Map<String, String> answers, Map<String, String> errors) {}
@@ -51,7 +68,7 @@ public class EligibilityEngine {
                 continue;
             }
             try {
-                answers.put(question.key(), normalize(question, value));
+                answers.put(question.key(), question.normalize(value));
             } catch (IllegalArgumentException error) {
                 errors.put(question.key(), error.getMessage());
             }
@@ -59,77 +76,56 @@ public class EligibilityEngine {
         return new Input(Collections.unmodifiableMap(answers), Collections.unmodifiableMap(errors));
     }
 
-    private String normalize(Catalog.Question question, String value) {
-        if (question.numeric()) {
-            if (!value.matches("[0-9]{1,12}(\\.[0-9]{1,6})?")) {
-                throw new IllegalArgumentException(question.whole() ?
-                        "Enter a non-negative whole number." : "Enter a non-negative number.");
+    public Result evaluate(Catalog.Scheme scheme, Map<String, String> answers) {
+        List<Check> checks = new ArrayList<>();
+        for (Catalog.Condition condition : scheme.conditions()) {
+            Check check = evaluate(condition, answers);
+            if (check.state() == State.FAIL && condition.id().equals(scheme.scopeCondition())) {
+                return summarize(scheme, Verdict.OUTSIDE_SCOPE, List.of(check));
             }
-            BigDecimal number = new BigDecimal(value).stripTrailingZeros();
-            if (question.whole() && number.scale() > 0) {
-                throw new IllegalArgumentException("Enter a whole number.");
-            }
-            if ((question.min() != null && number.compareTo(question.min()) < 0)
-                    || (question.max() != null && number.compareTo(question.max()) > 0)) {
-                throw new IllegalArgumentException("Enter a number between " + question.min() + " and " + question.max() + ".");
-            }
-            return number.toPlainString();
+            checks.add(check);
         }
-        Set<String> allowed = question.applicantType() ? Set.of("individual", "other") : Set.of("true", "false");
-        if (!allowed.contains(value)) {
-            throw new IllegalArgumentException("Choose one of the listed answers.");
-        }
-        return value;
+        State state = combinedState(checks.stream().map(Check::state).toList());
+        Verdict verdict = switch (state) {
+            case PASS -> Verdict.MATCH;
+            case FAIL -> Verdict.NO_MATCH;
+            case UNKNOWN -> Verdict.NEEDS_INFO;
+        };
+        return summarize(scheme, verdict, checks);
     }
 
-    public Result evaluate(Catalog.Scheme scheme, Map<String, String> answers) {
+    private Check evaluate(Catalog.Condition condition, Map<String, String> answers) {
+        var terms = condition.tests().stream().map(test -> {
+            String actual = answers.get(test.key());
+            State state = State.UNKNOWN;
+            if (actual != null) {
+                state = test.operator().matches(actual, test.expected()) ? State.PASS : State.FAIL;
+            }
+            return new Term(test.key(), test.operator(), test.expected(), actual, state);
+        }).toList();
+        return new Check(combinedState(terms.stream().map(Term::state).toList()), condition.evidence(), terms);
+    }
+
+    private State combinedState(List<State> states) {
+        if (states.contains(State.FAIL)) {
+            return State.FAIL;
+        }
+        return states.contains(State.UNKNOWN) ? State.UNKNOWN : State.PASS;
+    }
+
+    private Result summarize(Catalog.Scheme scheme, Verdict verdict, List<Check> checks) {
         Map<String, String> used = new LinkedHashMap<>();
         Set<String> missing = new LinkedHashSet<>();
-        List<Check> checks = scheme.conditions().stream().map(condition -> {
-            State state = State.PASS;
-            for (Catalog.Test comparison : condition.tests()) {
-                String actual = answers.get(comparison.key());
-                if (actual == null) {
-                    missing.add(comparison.key());
-                    if (state == State.PASS) {
-                        state = State.UNKNOWN;
-                    }
+        for (Check check : checks) {
+            for (Term term : check.terms()) {
+                if (term.state() == State.UNKNOWN) {
+                    missing.add(term.key());
                 } else {
-                    used.put(comparison.key(), actual);
-                    if (!satisfies(comparison, actual)) {
-                        state = State.FAIL;
-                    }
+                    used.put(term.key(), term.actual());
                 }
             }
-            return new Check(state, condition.evidence());
-        }).toList();
-
-        Verdict verdict;
-        if (scheme.slug().equals("pmfme") && "other".equals(answers.get("applicant_type"))) {
-            verdict = Verdict.OUTSIDE_SCOPE;
-            checks = checks.subList(0, 1);
-            missing.clear();
-            used.keySet().retainAll(Set.of("applicant_type"));
-        } else if (checks.stream().anyMatch(check -> check.state() == State.FAIL)) {
-            verdict = Verdict.NO_MATCH;
-        } else {
-            verdict = missing.isEmpty() ? Verdict.MATCH : Verdict.NEEDS_INFO;
         }
         return new Result(scheme.slug(), scheme.title(), scheme.version(), verdict, List.copyOf(checks),
                 List.copyOf(missing), Collections.unmodifiableMap(used));
-    }
-
-    private boolean satisfies(Catalog.Test comparison, String actual) {
-        if (comparison.operator().equals("==")) {
-            return actual.equals(comparison.expected());
-        }
-        int order = new BigDecimal(actual).compareTo(new BigDecimal(comparison.expected()));
-        return switch (comparison.operator()) {
-            case ">" -> order > 0;
-            case ">=" -> order >= 0;
-            case "<" -> order < 0;
-            case "<=" -> order <= 0;
-            default -> throw new IllegalStateException("Unsupported comparison " + comparison.operator());
-        };
     }
 }

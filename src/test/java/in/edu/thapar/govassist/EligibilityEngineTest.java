@@ -2,11 +2,15 @@ package in.edu.thapar.govassist;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static in.edu.thapar.govassist.EligibilityEngine.Verdict.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -51,6 +55,9 @@ class EligibilityEngineTest {
         assertThat(rejected.checks()).anySatisfy(check -> {
             assertThat(check.state()).isEqualTo(EligibilityEngine.State.FAIL);
             assertThat(check.evidence().id()).isEqualTo("individual-age-and-education");
+            assertThat(check.terms()).containsExactly(
+                    new EligibilityEngine.Term("age", Catalog.Operator.GREATER, "18", "18", EligibilityEngine.State.FAIL),
+                    new EligibilityEngine.Term("passed_class_8", Catalog.Operator.EQUAL, "true", "true", EligibilityEngine.State.PASS));
         });
         answers.put("age", "19");
         assertThat(engine.evaluate(scheme, answers).verdict()).isEqualTo(MATCH);
@@ -65,9 +72,16 @@ class EligibilityEngineTest {
 
     @Test
     void keepsPmfmeGroupApplicantOutsideIndividualTrack() {
-        var result = engine.evaluate(catalog.find("pmfme"), Map.of("applicant_type", "other", "age", "18"));
+        var scheme = catalog.find("pmfme");
+        var reordered = new java.util.ArrayList<>(scheme.conditions());
+        reordered.add(reordered.remove(0));
+        var changed = new Catalog.Scheme(scheme.slug(), scheme.title(), scheme.name(), scheme.category(),
+                scheme.authority(), scheme.summary(), scheme.sourceUrl(), scheme.version(),
+                reordered, scheme.nextSteps(), scheme.scopeCondition());
+        var result = engine.evaluate(changed, Map.of("applicant_type", "other", "age", "18"));
         assertThat(result.verdict()).isEqualTo(OUTSIDE_SCOPE);
-        assertThat(result.checks()).hasSize(1);
+        assertThat(result.checks()).singleElement().satisfies(check ->
+                assertThat(check.evidence().id()).isEqualTo("individual-capital-subsidy"));
         assertThat(result.missing()).isEmpty();
     }
 
@@ -104,5 +118,44 @@ class EligibilityEngineTest {
                 "consents_to_auto_debit", "true");
         assertThat(engine.evaluate(catalog.find("pmjjby"), answers).verdict()).isEqualTo(NO_MATCH);
         assertThat(engine.evaluate(catalog.find("pmsby"), answers).verdict()).isEqualTo(MATCH);
+    }
+
+    @ParameterizedTest(name = "{0}: passing case, then a single failed input")
+    @MethodSource("courseworkScenarios")
+    void evaluateEachRemainingSchemeFromExplicitFixtures(String slug, Map<String, String> answers,
+                                                         String changedField, String changedValue) {
+        var scheme = catalog.find(slug);
+        assertThat(engine.evaluate(scheme, answers).verdict()).isEqualTo(MATCH);
+        Map<String, String> changed = new LinkedHashMap<>(answers);
+        changed.put(changedField, changedValue);
+        var result = engine.evaluate(scheme, changed);
+        assertThat(result.verdict()).isEqualTo(NO_MATCH);
+        assertThat(result.checks()).flatExtracting(EligibilityEngine.Check::terms)
+                .anySatisfy(term -> {
+                    assertThat(term.key()).isEqualTo(changedField);
+                    assertThat(term.state()).isEqualTo(EligibilityEngine.State.FAIL);
+                });
+    }
+
+    static Stream<Arguments> courseworkScenarios() {
+        return Stream.of(
+                Arguments.of("pm-svanidhi", Map.of("is_street_vendor", "true", "vends_in_town_or_peri_urban", "true",
+                        "local_scheme_coverage_confirmed", "true"), "local_scheme_coverage_confirmed", "false"),
+                Arguments.of("pmuy", Map.of("is_woman", "true", "age", "18", "is_indian_citizen", "true",
+                        "resides_in_india", "true", "household_has_lpg_or_png", "false",
+                        "household_previously_had_gas", "false", "will_give_deprivation_declaration", "true"),
+                        "household_previously_had_gas", "true"),
+                Arguments.of("apy", Map.of("age", "40", "is_indian_citizen", "true",
+                        "has_savings_bank_account", "true", "ever_paid_income_tax", "false"), "age", "41"),
+                Arguments.of("nsap", Map.of("age", "60", "household_is_bpl", "true"), "age", "59"),
+                Arguments.of("pm-kmy", Map.of("age", "40", "owns_cultivable_land", "true", "land_hectares", "2",
+                        "in_other_pension_or_social_security_scheme", "false", "is_institutional_landholder", "false",
+                        "holds_or_held_public_office", "false", "is_government_employee", "false",
+                        "paid_income_tax_last_year", "false", "is_practising_professional", "false"),
+                        "land_hectares", "2.000001"),
+                Arguments.of("pmjjby", Map.of("age", "50", "has_bank_or_post_office_account", "true",
+                        "consents_to_auto_debit", "true"), "age", "51"),
+                Arguments.of("pmsby", Map.of("age", "70", "has_bank_or_post_office_account", "true",
+                        "consents_to_auto_debit", "true"), "age", "71"));
     }
 }

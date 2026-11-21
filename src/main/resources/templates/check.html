@@ -31,6 +31,12 @@
     </aside>
     <form th:action="@{/check/{slug}(slug=${slug})}" method="post" class="questionnaire">
       <input th:if="${profile != null}" type="hidden" name="profile" th:value="${profile.id()}">
+      <input th:if="${profile != null and !conflict}" type="hidden" name="submission" th:value="${submission}">
+      <input th:if="${profile != null and !conflict}" type="hidden" name="revision" th:value="${formRevision}">
+      <div class="alert" th:if="${conflict}" role="alert">
+        <p>Your profile changed or this form was already used. Your attempted answers are shown below.</p>
+        <a th:href="@{/check/{slug}(slug=${slug},profile=${profile.id()})}">Open the latest saved answers</a>
+      </div>
       <div class="alert" th:unless="${errors.isEmpty()}" role="alert">
         <strong>Check the highlighted answers.</strong>
         <ul><li th:each="item : ${errors}"><a th:href="${'#' + item.key}" th:text="${questionsByKey[item.key].label() + ': ' + item.value}"></a></li></ul>
@@ -68,7 +74,7 @@
         <p th:if="${errors.containsKey(field.key())}" th:id="${field.key() + '-error'}"
            class="error-text" th:text="${errors[field.key()]}"></p>
       </div>
-      <div class="form-actions"><button class="button primary">See results <span aria-hidden="true">→</span></button></div>
+      <div th:unless="${conflict}" class="form-actions"><button class="button primary">See results <span aria-hidden="true">→</span></button></div>
     </form>
   </div>
 </main>

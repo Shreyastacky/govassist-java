@@ -802,6 +802,7 @@
   "schemes": [
     {
       "slug": "pmfme",
+      "scopeCondition": "applicant_is_individual_unit",
       "title": "PMFME individual-unit support",
       "name": "PM Formalisation of Micro Food Processing Enterprises Scheme",
       "category": "Small business",

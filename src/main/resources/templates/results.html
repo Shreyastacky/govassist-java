@@ -39,6 +39,19 @@
             <div><p th:text="${check.evidence().plain()}"></p>
               <blockquote th:text="${check.evidence().quote()}"></blockquote>
               <a th:href="${check.evidence().url() + '#page=' + check.evidence().page()}" th:text="${'Source PDF · page ' + check.evidence().page() + ' ↗'}"></a>
+              <details class="rule-trace" th:if="${!check.terms().isEmpty()}" th:open="${check.state().name() == 'FAIL' ? 'open' : null}">
+                <summary>How this criterion was checked</summary>
+                <ul>
+                  <li th:each="term : ${check.terms()}">
+                    <strong th:text="${questionsByKey[term.key()] != null ? questionsByKey[term.key()].label() : term.key()}"></strong>
+                    <span class="status small" th:classappend="${term.state().style()}" th:text="${term.state().label()}"></span>
+                    <span class="rule-values">
+                      <span th:text="${'Answer: ' + term.submitted()}"></span>
+                      <span th:text="${'Required: ' + term.required()}"></span>
+                    </span>
+                  </li>
+                </ul>
+              </details>
             </div>
           </div>
         </div>
@@ -54,7 +67,7 @@
           <dd th:text="${answer.value == 'true' ? 'Yes' : (answer.value == 'false' ? 'No' : answer.value)}"></dd>
         </th:block></dl>
       </details>
-      <details class="result-section" th:if="${scheme != null and !snapshot and result.verdict().name() != 'OUTSIDE_SCOPE'}">
+      <details class="result-section" th:if="${scheme != null and scheme.version() == result.version() and !snapshot and result.verdict().name() != 'OUTSIDE_SCOPE'}">
         <summary>Benefits, documents and next steps</summary>
         <div class="steps">
           <div th:each="section : ${scheme.nextSteps()}">
