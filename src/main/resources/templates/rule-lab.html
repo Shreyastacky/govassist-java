@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frame :: head('Rule Lab')}"></head>
+<body>
+<header th:replace="~{frame :: header}"></header>
+<main id="main" class="shell content">
+  <div class="page-heading lab-heading">
+    <p class="kicker">Java rule engine</p>
+    <h1>Rule Lab</h1>
+    <p>Change the age in a sample PMFME assessment. See how the Java engine checks age and education against the same guideline.</p>
+  </div>
+  <div class="lab-layout">
+    <section class="dashboard-block lab-input">
+      <h2>Sample application</h2>
+      <p class="muted">An individual food-processing unit with nine workers. The applicant passed Class VIII and meets the remaining checks in this example.</p>
+      <div class="sample-links" aria-label="Sample ages">
+        <a th:href="@{/lab(age=18)}" th:aria-current="${example.age() == '18' ? 'page' : null}">Age 18</a>
+        <a th:href="@{/lab(age=19)}" th:aria-current="${example.age() == '19' ? 'page' : null}">Age 19</a>
+        <a th:href="@{/lab(age='')}" th:aria-current="${example.age().isBlank() ? 'page' : null}">Age unknown</a>
+      </div>
+      <form th:action="@{/lab}" method="get" class="lab-form">
+        <label for="lab-age">Age in completed years</label>
+        <input id="lab-age" name="age" type="text" inputmode="numeric" maxlength="8" th:value="${example.age()}"
+               th:attr="aria-invalid=${example.error() != null}, aria-describedby=${example.error() != null ? 'lab-error' : 'lab-help'}">
+        <p id="lab-help" class="field-help">Leave it blank to see how a missing answer is handled.</p>
+        <p id="lab-error" class="error-text" role="alert" th:if="${example.error() != null}" th:text="${example.error()}"></p>
+        <button class="button primary">Run sample</button>
+      </form>
+    </section>
+    <section th:if="${example.result() != null}" class="dashboard-block lab-output" th:with="result=${example.result()}, criterion=${example.criterion()}">
+      <div class="lab-output-head">
+        <div><p class="kicker">PMFME individual-unit support</p><h2>Evaluation</h2></div>
+        <span class="status" th:classappend="${result.verdict().style()}" th:text="${result.verdict().label()}"></span>
+      </div>
+      <div class="lab-trace">
+        <div class="lab-term" th:each="term : ${criterion.terms()}">
+          <div><strong th:text="${questionsByKey[term.key()].label()}"></strong>
+            <span class="lab-expression" th:text="${term.key() + ' ' + term.operator().symbol() + ' ' + term.expected()}"></span></div>
+          <span th:text="${term.submitted()}"></span>
+          <span class="status small" th:classappend="${term.state().style()}" th:text="${term.state().label()}"></span>
+        </div>
+      </div>
+      <figure class="lab-source">
+        <figcaption>From the scheme guideline</figcaption>
+        <blockquote th:text="${criterion.evidence().quote()}"></blockquote>
+        <a th:href="${criterion.evidence().url() + '#page=' + criterion.evidence().page()}"
+           th:text="${'Source PDF · page ' + criterion.evidence().page()}"></a>
+      </figure>
+    </section>
+  </div>
+</main>
+<footer th:replace="~{frame :: footer}"></footer>
+</body>
+</html>

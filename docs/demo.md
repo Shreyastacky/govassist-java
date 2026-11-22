@@ -2,7 +2,7 @@
 
 ## Five-minute demo
 
-1. Start the packaged JAR and open the homepage. Search for `pension` and point out that each scheme has its own questions.
+1. Start the packaged JAR and open the homepage. Open **Rule Lab** and switch between 18, 19, and unknown. The sample uses the same Java validator and evaluator as the full questionnaire.
 2. Open PM SVANidhi. Answer Yes to street vending and vending in a town or peri-urban area. Leave local coverage blank and submit. Expand **Missing answers** and open the guideline citation for local coverage.
 3. Open PMFME individual-unit support. Enter `-1` as the number of workers and submit. Show the inline validation. Then use the complete profile below to compare ages 18 and 19.
 4. Sign in with a fictional local account and run a check. Open its saved record from the dashboard. Edit and rerun the form, then open the previous result to show that it keeps the original answers.

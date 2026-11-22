@@ -1,33 +1,29 @@
 const questionnaire = document.querySelector('.questionnaire');
-const progress = document.querySelector('#progress');
-if (questionnaire && progress) {
-    const fields = [...questionnaire.querySelectorAll('.field input, .field select')];
-    const update = () => {
-        const answered = fields.filter(field => field.value.trim() !== '').length;
-        progress.textContent = `${answered} of ${fields.length} answered`;
+
+if (questionnaire) {
+    const fields = [...questionnaire.querySelectorAll('.question-field')];
+    const progress = document.querySelector('#question-progress');
+    const progressText = progress.querySelector('p');
+    const meter = progress.querySelector('progress');
+
+    const updateProgress = () => {
+        const answered = fields.filter(field => {
+            const input = field.querySelector('input[type="text"], input[type="radio"]:checked');
+            return input && input.value.trim() !== '';
+        }).length;
+        progressText.textContent = `${answered} of ${fields.length} answered`;
+        meter.value = answered;
     };
+
     progress.hidden = false;
-    questionnaire.addEventListener('input', update);
-    update();
-}
+    questionnaire.addEventListener('input', updateProgress);
+    updateProgress();
 
-const back = document.querySelector('[data-back]');
-if (back && new URL(document.referrer || location.href).pathname.startsWith('/check/')) {
-    back.hidden = false;
-    back.addEventListener('click', () => history.back());
-}
-
-const language = document.querySelector('#question-language');
-if (language) {
+    const picker = document.querySelector('#language-picker');
+    const language = picker.querySelector('select');
     const strings = [...questionnaire.querySelectorAll('[data-hi], [data-pa], [data-ta]')]
         .map(node => ({node, english: node.textContent}));
-    const choices = {
-        en: ['Choose an answer', 'Yes', 'No', 'Yes, applying individually', 'No, applying as a group or another entity'],
-        hi: ['उत्तर चुनें', 'हाँ', 'नहीं', 'हाँ, व्यक्तिगत रूप से', 'नहीं, समूह या अन्य संस्था के रूप में'],
-        pa: ['ਜਵਾਬ ਚੁਣੋ', 'ਹਾਂ', 'ਨਹੀਂ', 'ਹਾਂ, ਵਿਅਕਤੀਗਤ ਤੌਰ ’ਤੇ', 'ਨਹੀਂ, ਸਮੂਹ ਜਾਂ ਹੋਰ ਸੰਸਥਾ ਵਜੋਂ'],
-        ta: ['பதிலைத் தேர்ந்தெடுக்கவும்', 'ஆம்', 'இல்லை', 'ஆம், தனிநபராக', 'இல்லை, குழுவாக அல்லது வேறு அமைப்பாக']
-    };
-    const inputChoices = [...questionnaire.querySelectorAll('.field select')];
+
     const translate = () => {
         const locale = language.value;
         strings.forEach(({node, english}) => {
@@ -35,16 +31,15 @@ if (language) {
             node.textContent = translation ?? english;
             node.lang = translation === undefined ? 'en' : locale;
         });
-        const [placeholder, yes, no, individual, group] = choices[locale];
-        inputChoices.forEach(select => {
-            const applicantType = select.options[1].value === 'individual';
-            const labels = [placeholder, applicantType ? individual : yes, applicantType ? group : no];
-            [...select.options].forEach((option, index) => {
-                option.textContent = labels[index];
-                option.lang = locale;
-            });
-        });
     };
-    document.querySelector('#language-picker').hidden = false;
+
+    picker.hidden = false;
     language.addEventListener('change', translate);
+}
+
+const back = document.querySelector('[data-back]');
+if (back && document.referrer && new URL(document.referrer).origin === location.origin
+    && new URL(document.referrer).pathname.startsWith('/check/')) {
+    back.hidden = false;
+    back.addEventListener('click', () => history.back());
 }

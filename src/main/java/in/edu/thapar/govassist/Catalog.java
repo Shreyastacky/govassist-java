@@ -9,25 +9,47 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 @Component
 public class Catalog {
     private static final Pattern DECIMAL = Pattern.compile("[0-9]{1,12}(\\.[0-9]{1,6})?");
 
+    public enum Topic {
+        PERSONAL("Personal and household"), FINANCES("Banking and income"),
+        WORK("Work and land"), BUSINESS("Food processing business");
+
+        private final String title;
+        Topic(String title) { this.title = title; }
+        public String title() { return title; }
+        public String anchor() { return "questions-" + name().toLowerCase(Locale.ROOT); }
+    }
+
+    public record Choice(String value, String label, String hindi, String punjabi, String tamil) {}
+    private static final Choice UNKNOWN = new Choice("", "Not sure", "पता नहीं", "ਪਤਾ ਨਹੀਂ", "தெரியவில்லை");
+    private static final List<Choice> YES_NO = List.of(
+            new Choice("true", "Yes", "हाँ", "ਹਾਂ", "ஆம்"),
+            new Choice("false", "No", "नहीं", "ਨਹੀਂ", "இல்லை"), UNKNOWN);
+    private static final List<Choice> APPLICANT_TYPES = List.of(
+            new Choice("individual", "Individual", "व्यक्तिगत", "ਵਿਅਕਤੀਗਤ", "தனிநபர்"),
+            new Choice("other", "Group or other entity", "समूह या अन्य संस्था", "ਸਮੂਹ ਜਾਂ ਹੋਰ ਸੰਸਥਾ", "குழு அல்லது வேறு அமைப்பு"), UNKNOWN);
+
     public record Translation(String ask, String help) {}
     public record Question(String key, String label, String ask, String help,
                            String kind, boolean whole, BigDecimal min, BigDecimal max,
-                           Map<String, Translation> translations) {
+                           Map<String, Translation> translations, Topic topic) {
         public Question {
-            if (!Set.of("number", "applicant", "boolean").contains(kind)) {
+            if (!Set.of("number", "applicant", "boolean").contains(kind) || topic == null) {
                 throw new IllegalArgumentException("Unknown question type for " + key);
             }
             translations = Map.copyOf(translations);
@@ -35,11 +57,11 @@ public class Catalog {
 
         public boolean numeric() { return "number".equals(kind); }
         public boolean applicantType() { return "applicant".equals(kind); }
+        public List<Choice> choices() { return applicantType() ? APPLICANT_TYPES : YES_NO; }
 
         String normalize(String value) {
             if (!numeric()) {
-                Set<String> allowed = applicantType() ? Set.of("individual", "other") : Set.of("true", "false");
-                if (!allowed.contains(value)) {
+                if (value.isEmpty() || choices().stream().noneMatch(choice -> choice.value().equals(value))) {
                     throw new IllegalArgumentException("Choose one of the listed answers.");
                 }
                 return value;
@@ -125,6 +147,8 @@ public class Catalog {
         }
     }
     public record SourceGroup(Scheme scheme, List<Evidence> evidence) {}
+    public record Category(String name, int count) {}
+    public record QuestionSection(Topic topic, List<Question> questions) {}
     private record Corpus(List<Question> questions, List<Scheme> schemes) {}
 
     private final Map<String, Question> questions = new LinkedHashMap<>();
@@ -192,6 +216,21 @@ public class Catalog {
 
     public List<Scheme> schemes() { return List.copyOf(schemes.values()); }
     public Scheme find(String slug) { return schemes.get(slug); }
+
+    public List<Category> categories() {
+        Map<String, Integer> counts = new TreeMap<>();
+        schemes.values().forEach(scheme -> counts.merge(scheme.category(), 1, Integer::sum));
+        return counts.entrySet().stream().map(entry -> new Category(entry.getKey(), entry.getValue())).toList();
+    }
+
+    public List<Scheme> search(String query, String category) {
+        String text = query.toLowerCase(Locale.ROOT);
+        return schemes.values().stream()
+                .filter(scheme -> category.isEmpty() || scheme.category().equalsIgnoreCase(category))
+                .filter(scheme -> (scheme.title() + " " + scheme.name() + " " + scheme.category() + " " + scheme.summary())
+                        .toLowerCase(Locale.ROOT).contains(text))
+                .toList();
+    }
     public List<SourceGroup> sources(List<Scheme> selected, List<String> terms) {
         return selected.stream().map(scheme -> {
             Map<String, Evidence> excerpts = new LinkedHashMap<>();
@@ -216,5 +255,15 @@ public class Catalog {
             }
         }
         return questions.values().stream().filter(q -> keys.contains(q.key())).toList();
+    }
+
+    public List<QuestionSection> sections(List<Question> selected, boolean combined) {
+        if (!combined) {
+            return List.of(new QuestionSection(null, selected));
+        }
+        Map<Topic, List<Question>> groups = new EnumMap<>(Topic.class);
+        selected.forEach(question -> groups.computeIfAbsent(question.topic(), topic -> new ArrayList<>()).add(question));
+        return groups.entrySet().stream()
+                .map(entry -> new QuestionSection(entry.getKey(), List.copyOf(entry.getValue()))).toList();
     }
 }

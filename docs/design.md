@@ -20,8 +20,9 @@ flowchart LR
 
 | Method and route | Result |
 | --- | --- |
-| `GET /` | Scheme catalogue with optional `q` filter |
+| `GET /` | Scheme catalogue with optional `q` and `category` filters |
 | `GET /sources` | Excerpts filtered by optional `q` and `scheme` |
+| `GET /lab` | Run the PMFME example with optional `age`, and display the age and education comparisons without a database write |
 | `GET /check/{slug}` | Form for one scheme or `all`, with optional signed-in `profile` |
 | `POST /check/{slug}` | Validates input, returns a guest result or redirects a signed-in applicant to the saved run |
 | `GET /register`, `POST /register` | Registration page and submission |
@@ -30,6 +31,10 @@ flowchart LR
 | `POST /dashboard/profiles` | Add a named household profile |
 | `GET /dashboard/results/{id}` | Return an assessment owned by the signed-in account |
 | `GET /dashboard/runs/{id}` | Return all results from one submission owned by the signed-in account |
+
+## Server-rendered interface
+
+`Catalog` provides category counts, filters the directory, defines translated answer choices, and groups the combined questionnaire by topic. Thymeleaf renders the result and submits standard browser forms, including the Rule Lab. The JavaScript updates the questionnaire progress and language labels without clearing its inputs. Both fonts are packaged with the app alongside their OFL notices.
 
 ## Rules and evidence
 

@@ -4,30 +4,46 @@
 <body>
 <header th:replace="~{frame :: header}"></header>
 <main id="main" class="shell content">
-  <a th:href="@{/#schemes}" class="back">← Browse schemes</a>
+  <a th:href="@{/#schemes}" class="back">Scheme directory</a>
   <div class="page-heading">
-    <p class="kicker" th:text="${scheme == null ? 'All eight schemes' : scheme.category()}"></p>
+    <p class="kicker" th:text="${scheme == null ? 'Combined eligibility check' : scheme.category()}"></p>
     <h1 th:text="${scheme == null ? 'Compare across schemes' : scheme.title()}"></h1>
-    <p th:text="${scheme == null ? 'Use one set of answers to check all eight schemes.' : scheme.summary()}"></p>
+    <p th:text="${scheme == null ? 'Answer shared questions once to check every scheme.' : scheme.summary()}"></p>
   </div>
   <div class="work-area">
     <aside class="guidance">
-      <h2>Before you start</h2>
-      <p>Leave any question blank if you are unsure. GovAssist shows which answers are still missing.</p>
-      <p th:if="${profile == null}">You can run this check as a guest. <a th:href="@{/login}">Sign in</a> to save answers and results.</p>
-      <th:block th:if="${profile != null}">
-        <div class="profile-picker">
-          <label for="select-profile">Checking for</label>
+      <h2>Your check</h2>
+      <p>Leave questions unanswered if you are unsure. The result will show what still needs checking.</p>
+      <div class="progress-block" id="question-progress" hidden>
+        <p id="progress"></p>
+        <progress th:max="${questionCount}" value="0" aria-label="Questions answered"></progress>
+      </div>
+      <div class="language-picker" id="language-picker" hidden>
+        <label for="question-language">Question language</label>
+        <select id="question-language">
+          <option value="en">English</option>
+          <option value="hi" lang="hi">हिन्दी</option>
+          <option value="pa" lang="pa">ਪੰਜਾਬੀ</option>
+          <option value="ta" lang="ta">தமிழ்</option>
+        </select>
+      </div>
+      <nav th:if="${scheme == null}" class="section-nav" aria-label="Question sections">
+        <a th:each="section : ${sections}" th:href="${'#' + section.topic().anchor()}" th:text="${section.topic().title()}"></a>
+      </nav>
+      <div class="guidance-foot">
+        <p th:if="${profile == null}"><a th:href="@{/login}">Sign in</a> to save an assessment.</p>
+        <div th:if="${profile != null}" class="profile-picker">
+          <label for="select-profile">Applicant profile</label>
           <form method="get" th:action="@{/check/{slug}(slug=${slug})}">
             <select name="profile" id="select-profile">
               <option th:each="item : ${profiles}" th:value="${item.id()}" th:text="${item.label()}" th:selected="${item.id() == profile.id()}"></option>
             </select>
             <button class="button outline compact">Switch</button>
           </form>
+          <p class="field-help">Answers and results are saved to this profile.</p>
         </div>
-        <p>Submitting saves these answers and results to your dashboard.</p>
-      </th:block>
-      <a th:if="${scheme != null}" th:href="${scheme.sourceUrl()}">Open source guideline ↗</a>
+        <a th:if="${scheme != null}" th:href="${scheme.sourceUrl()}">Read the scheme guideline</a>
+      </div>
     </aside>
     <form th:action="@{/check/{slug}(slug=${slug})}" method="post" class="questionnaire">
       <input th:if="${profile != null}" type="hidden" name="profile" th:value="${profile.id()}">
@@ -41,40 +57,32 @@
         <strong>Check the highlighted answers.</strong>
         <ul><li th:each="item : ${errors}"><a th:href="${'#' + item.key}" th:text="${questionsByKey[item.key].label() + ': ' + item.value}"></a></li></ul>
       </div>
-      <div class="form-heading"><h2>Your answers</h2><span id="progress" hidden></span></div>
-      <div class="language-picker" id="language-picker" hidden>
-        <label for="question-language">Question language</label>
-        <select id="question-language">
-          <option value="en">English</option>
-          <option value="hi" lang="hi">हिन्दी</option>
-          <option value="pa" lang="pa">ਪੰਜਾਬੀ</option>
-          <option value="ta" lang="ta">தமிழ்</option>
-        </select>
-      </div>
-      <div th:each="field : ${questions}" class="field" th:classappend="${errors.containsKey(field.key()) ? 'field-error' : ''}">
-        <label th:for="${field.key()}" th:text="${field.ask()}"
-               th:attr="data-hi=${field.askIn('hi')},data-pa=${field.askIn('pa')},data-ta=${field.askIn('ta')}"></label>
-        <p class="field-help" th:id="${field.key() + '-help'}" th:text="${field.help()}"
-           th:attr="data-hi=${field.helpIn('hi')},data-pa=${field.helpIn('pa')},data-ta=${field.helpIn('ta')}"></p>
-        <input th:if="${field.numeric()}" type="text"
-               th:inputmode="${field.whole() ? 'numeric' : 'decimal'}" maxlength="19"
-               th:id="${field.key()}" th:name="${field.key()}" th:value="${answers[field.key()]}"
-               th:attr="aria-describedby=${field.key() + '-help' + (errors.containsKey(field.key()) ? ' ' + field.key() + '-error' : '')},aria-invalid=${errors.containsKey(field.key())}"
-               placeholder="Leave blank if unsure">
-        <select th:unless="${field.numeric()}" th:id="${field.key()}" th:name="${field.key()}"
-                th:attr="aria-describedby=${field.key() + '-help' + (errors.containsKey(field.key()) ? ' ' + field.key() + '-error' : '')},aria-invalid=${errors.containsKey(field.key())}">
-          <option value="">Choose an answer</option>
-          <option th:value="${field.applicantType() ? 'individual' : 'true'}"
-                  th:selected="${answers[field.key()] == (field.applicantType() ? 'individual' : 'true')}"
-                  th:text="${field.applicantType() ? 'Yes, applying individually' : 'Yes'}"></option>
-          <option th:value="${field.applicantType() ? 'other' : 'false'}"
-                  th:selected="${answers[field.key()] == (field.applicantType() ? 'other' : 'false')}"
-                  th:text="${field.applicantType() ? 'No, applying as a group or another entity' : 'No'}"></option>
-        </select>
-        <p th:if="${errors.containsKey(field.key())}" th:id="${field.key() + '-error'}"
-           class="error-text" th:text="${errors[field.key()]}"></p>
-      </div>
-      <div th:unless="${conflict}" class="form-actions"><button class="button primary">See results <span aria-hidden="true">→</span></button></div>
+      <div class="form-heading"><h2>Your answers</h2><span th:text="${questionCount + (questionCount == 1 ? ' question' : ' questions')}"></span></div>
+      <section class="question-section" th:each="section : ${sections}" th:id="${section.topic() != null ? section.topic().anchor() : null}">
+        <h3 th:if="${section.topic() != null}" th:text="${section.topic().title()}"></h3>
+        <div th:each="field : ${section.questions()}" class="field question-field" th:classappend="${errors.containsKey(field.key()) ? 'field-error' : ''}">
+          <label th:if="${field.numeric()}" th:for="${field.key()}" th:text="${field.ask()}"
+                 th:attr="data-hi=${field.askIn('hi')},data-pa=${field.askIn('pa')},data-ta=${field.askIn('ta')}"></label>
+          <p th:unless="${field.numeric()}" class="question-label" th:id="${field.key() + '-label'}" th:text="${field.ask()}"
+             th:attr="data-hi=${field.askIn('hi')},data-pa=${field.askIn('pa')},data-ta=${field.askIn('ta')}"></p>
+          <p class="field-help" th:id="${field.key() + '-help'}" th:text="${field.help()}"
+             th:attr="data-hi=${field.helpIn('hi')},data-pa=${field.helpIn('pa')},data-ta=${field.helpIn('ta')}"></p>
+          <input th:if="${field.numeric()}" type="text" th:inputmode="${field.whole() ? 'numeric' : 'decimal'}" maxlength="19"
+                 th:id="${field.key()}" th:name="${field.key()}" th:value="${answers[field.key()]}"
+                 th:attr="aria-describedby=${field.key() + '-help' + (errors.containsKey(field.key()) ? ' ' + field.key() + '-error' : '')},aria-invalid=${errors.containsKey(field.key())}"
+                 placeholder="Enter a number">
+          <div th:unless="${field.numeric()}" class="answer-options" role="radiogroup" th:id="${field.key()}"
+               th:attr="aria-labelledby=${field.key() + '-label'}, aria-describedby=${field.key() + '-help' + (errors.containsKey(field.key()) ? ' ' + field.key() + '-error' : '')}, aria-invalid=${errors.containsKey(field.key())}">
+            <label class="answer-option" th:each="choice : ${field.choices()}">
+              <input type="radio" th:name="${field.key()}" th:value="${choice.value()}" th:checked="${answers[field.key()] == choice.value()}">
+              <span th:text="${choice.label()}" th:attr="data-hi=${choice.hindi()},data-pa=${choice.punjabi()},data-ta=${choice.tamil()}"></span>
+            </label>
+          </div>
+          <p th:if="${errors.containsKey(field.key())}" th:id="${field.key() + '-error'}"
+             class="error-text" th:text="${errors[field.key()]}"></p>
+        </div>
+      </section>
+      <div th:unless="${conflict}" class="form-actions"><button class="button primary">See results</button></div>
     </form>
   </div>
 </main>

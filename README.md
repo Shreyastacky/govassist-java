@@ -18,6 +18,7 @@ Open <http://127.0.0.1:8080>. To pick another port, append `--server.port=8081` 
 ## What to demonstrate
 
 - Browse and search the eight schemes. Open one questionnaire or use **Check across schemes** to reuse the same answers.
+- Open **Rule Lab** and compare ages 18, 19, and an unknown age. It runs a synthetic PMFME profile through the same Java evaluator used by real checks.
 - Leave a question blank. Read the missing-answer list and the cited criteria in the result.
 - In **Sources**, filter excerpts by scheme and search terms.
 - Register with a fictional email such as `student@example.test`. Sign in, run a check, and open it again from the dashboard. Add a household profile to keep a second applicant's answers separate.
@@ -35,7 +36,7 @@ The application screens against a coursework snapshot. Scheme authorities make t
 | Tests | [src/test](src/test) |
 | Design, routes and data notes | [Design notes](docs/design.md) |
 | Live demo and individual viva | [Demonstration guide](docs/demo.md) |
-| Editable report | [GovAssist Java Project Report.docx](submission/GovAssist%20Java%20Project%20Report.docx) |
+| Editable report | [GovAssist Java Project Report - Revised.docx](submission/GovAssist%20Java%20Project%20Report%20-%20Revised.docx) |
 | Editable presentation | [GovAssist Java Presentation.pptx](submission/GovAssist%20Java%20Presentation.pptx) |
 
 H2 initializes its tables from `schema.sql` at start-up and stores data in `runtime/govassist.mv.db`. Test runs use an in-memory database. Run the demo with fictional data, and use one server process per database file.

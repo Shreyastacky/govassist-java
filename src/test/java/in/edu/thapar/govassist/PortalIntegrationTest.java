@@ -49,6 +49,42 @@ class PortalIntegrationTest {
     }
 
     @Test
+    void combinesCategoryFilteringWithKeywordSearch() throws Exception {
+        http.perform(get("/").param("category", "Pension").param("q", "Atal"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("1 result for")))
+                .andExpect(result -> assertThat(result.getResponse().getContentAsString().split("<article", -1)).hasSize(2));
+        http.perform(get("/").param("category", "Insurance").param("q", "Atal"))
+                .andExpect(content().string(containsString("No schemes match")));
+    }
+
+    @Test
+    void ruleLabUsesTheJavaEngineForBoundaryMissingAndInvalidInputs() throws Exception {
+        http.perform(get("/lab").param("age", "18"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("A criterion was not met")))
+                .andExpect(content().string(containsString("age &gt; 18")));
+        http.perform(get("/lab").param("age", "19"))
+                .andExpect(content().string(containsString("Matches recorded criteria")));
+        http.perform(get("/lab").param("age", ""))
+                .andExpect(content().string(containsString("More information needed")));
+        http.perform(get("/lab").param("age", "-1"))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(content().string(containsString("Enter a non-negative whole number.")));
+        assertThat(db.queryForObject("SELECT COUNT(*) FROM assessment", Integer.class)).isZero();
+    }
+
+    @Test
+    void combinedFormRendersServerOwnedQuestionSectionsAndChoiceLabels() throws Exception {
+        http.perform(get("/check/all"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("34 questions")))
+                .andExpect(content().string(containsString("id=\"questions-personal\"")))
+                .andExpect(content().string(containsString("id=\"questions-business\"")))
+                .andExpect(content().string(containsString("Not sure")));
+    }
+
+    @Test
     void guestComparisonRendersEightResultsAndWritesNothing() throws Exception {
         http.perform(post("/check/all").with(csrf()))
                 .andExpect(status().isOk())

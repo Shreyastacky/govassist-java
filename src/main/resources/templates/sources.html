@@ -20,11 +20,11 @@
   <p th:if="${groups.isEmpty()}" class="notice">No passages match your search. Try fewer words or a different scheme.</p>
   <section th:each="group : ${groups}" class="source-group dashboard-block">
     <h2 th:text="${group.scheme().title()}"></h2>
-    <a th:href="${group.scheme().sourceUrl()}" th:text="${group.scheme().authority() + ' ↗'}"></a>
+    <a th:href="${group.scheme().sourceUrl()}" th:text="${group.scheme().authority()}"></a>
     <details th:each="item : ${group.evidence()}" class="result-section">
       <summary th:text="${item.plain()}"></summary>
       <blockquote th:text="${item.quote()}"></blockquote>
-      <a th:href="${item.url() + '#page=' + item.page()}" th:text="${'Source PDF · page ' + item.page() + ' ↗'}"></a>
+      <a th:href="${item.url() + '#page=' + item.page()}" th:text="${'Source PDF · page ' + item.page()}"></a>
     </details>
   </section>
 </main>

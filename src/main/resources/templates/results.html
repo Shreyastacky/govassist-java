@@ -4,8 +4,8 @@
 <body>
 <header th:replace="~{frame :: header}"></header>
 <main id="main" class="shell content">
-  <a th:if="${snapshot or saved}" class="back" th:href="@{/dashboard}">← Dashboard</a>
-  <a th:unless="${snapshot or saved}" class="back" th:href="@{/#schemes}">← Browse schemes</a>
+  <a th:if="${snapshot or saved}" class="back" th:href="@{/dashboard}">Assessment dashboard</a>
+  <a th:unless="${snapshot or saved}" class="back" th:href="@{/#schemes}">Scheme directory</a>
   <div class="page-heading result-heading">
     <div>
       <p class="kicker" th:text="${snapshot ? 'Saved assessment' : 'Eligibility check'}"></p>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="result-grid">
-    <section th:each="result : ${results}" class="result-panel" th:with="scheme=${schemesBySlug[result.slug()]}">
+    <section th:each="result : ${results}" class="result-panel" th:with="scheme=${schemesBySlug[result.slug()]}, counts=${result.counts()}">
       <div class="result-banner">
         <span class="status" th:classappend="${result.verdict().style()}" th:text="${result.verdict().label()}"></span>
         <span class="version" th:text="${'Rule version ' + result.version()}"></span>
@@ -31,6 +31,11 @@
       <p class="result-note" th:if="${result.verdict().name() == 'MATCH'}">The answers meet the rules in this catalogue. The scheme authority makes the final decision.</p>
       <p class="result-note" th:if="${result.verdict().name() == 'NO_MATCH'}">At least one answer conflicts with a criterion below. Review the evidence or correct your answers.</p>
       <p class="result-note" th:if="${result.verdict().name() == 'NEEDS_INFO'}">Supply the missing answers below to complete the check.</p>
+      <dl class="criterion-counts" aria-label="Criterion totals">
+        <div><dt>Met</dt><dd th:text="${counts.met()}"></dd></div>
+        <div><dt>Not met</dt><dd th:text="${counts.unmet()}"></dd></div>
+        <div><dt>Unanswered</dt><dd th:text="${counts.unanswered()}"></dd></div>
+      </dl>
       <details class="result-section" th:open="${results.size() == 1 ? 'open' : null}">
         <summary>Criteria and source excerpts</summary>
         <div class="checks">
@@ -38,7 +43,7 @@
             <span class="status small" th:classappend="${check.state().style()}" th:text="${check.state().label()}"></span>
             <div><p th:text="${check.evidence().plain()}"></p>
               <blockquote th:text="${check.evidence().quote()}"></blockquote>
-              <a th:href="${check.evidence().url() + '#page=' + check.evidence().page()}" th:text="${'Source PDF · page ' + check.evidence().page() + ' ↗'}"></a>
+              <a th:href="${check.evidence().url() + '#page=' + check.evidence().page()}" th:text="${'Source PDF · page ' + check.evidence().page()}"></a>
               <details class="rule-trace" th:if="${!check.terms().isEmpty()}" th:open="${check.state().name() == 'FAIL' ? 'open' : null}">
                 <summary>How this criterion was checked</summary>
                 <ul>
@@ -74,10 +79,10 @@
             <h3 th:text="${section.key == 'good_to_know' ? 'Conditions to note' : (section.key == 'after' ? 'After enrollment' : (section.key == 'apply' ? 'How to apply' : section.key))}"></h3>
             <p th:if="${section.value.isEmpty()}">Check with the scheme authority for this information.</p>
             <p th:each="item : ${section.value}"><span th:text="${item.plain()}"></span>
-              <a th:href="${item.url() + '#page=' + item.page()}" th:text="${'Page ' + item.page() + ' ↗'}"></a></p>
+              <a th:href="${item.url() + '#page=' + item.page()}" th:text="${'Page ' + item.page()}"></a></p>
           </div>
           <p th:text="${scheme.authority()}"></p>
-          <a th:href="${scheme.sourceUrl()}">Open guideline ↗</a>
+          <a th:href="${scheme.sourceUrl()}">Open guideline</a>
         </div>
       </details>
     </section>

@@ -4,7 +4,7 @@
 <th:block th:fragment="head(title)">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#103d32">
+  <meta name="theme-color" content="#f8f7f4">
   <title th:text="${title + ' | GovAssist'}">GovAssist</title>
   <link rel="stylesheet" th:href="@{/portal.css}">
   <script th:src="@{/portal.js}" defer></script>
@@ -12,20 +12,21 @@
 <header th:fragment="header" class="site-header">
   <a class="skip" href="#main">Skip to content</a>
   <div class="shell header-inner">
-    <a th:href="@{/}" class="brand"><span class="brand-icon" aria-hidden="true"></span>GovAssist</a>
-    <nav aria-label="Main navigation">
-      <a th:href="@{/#schemes}">Schemes</a>
-      <a th:href="@{/sources}">Sources</a>
-      <a th:if="${signedIn}" th:href="@{/dashboard}">Dashboard</a>
-      <a th:unless="${signedIn}" th:href="@{/login}">Sign in</a>
-      <form th:if="${signedIn}" th:action="@{/logout}" method="post"><button class="nav-button">Sign out</button></form>
+    <a th:href="@{/}" class="brand"><span class="brand-icon" aria-hidden="true">G</span><span>GovAssist</span><small>Java edition</small></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a th:href="@{/#schemes}" th:aria-current="${pagePath != null and (pagePath == '/' or pagePath.startsWith('/check/')) ? 'page' : null}">Schemes</a>
+      <a th:href="@{/sources}" th:aria-current="${pagePath == '/sources' ? 'page' : null}">Sources</a>
+      <a th:href="@{/lab}" th:aria-current="${pagePath == '/lab' ? 'page' : null}">Rule Lab</a>
+      <a th:if="${signedIn}" th:href="@{/dashboard}" th:aria-current="${pagePath != null and pagePath.startsWith('/dashboard') ? 'page' : null}">Dashboard</a>
+      <a th:unless="${signedIn}" th:href="@{/login}" class="nav-action" th:aria-current="${pagePath == '/login' or pagePath == '/register' ? 'page' : null}">Sign in</a>
+      <form th:if="${signedIn}" th:action="@{/logout}" method="post"><button class="nav-action">Sign out</button></form>
     </nav>
   </div>
 </header>
 <footer th:fragment="footer" class="site-footer">
   <div class="shell footer-inner">
     <span class="footer-brand">GovAssist</span>
-    <span>Academic project · Preliminary screening based on the cited documents</span>
+    <span>UCS553 academic project · Preliminary screening</span>
   </div>
 </footer>
 </body>

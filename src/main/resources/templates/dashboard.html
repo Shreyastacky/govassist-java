@@ -13,7 +13,7 @@
       <p class="alert" th:if="${profileError != null}" th:text="${profileError}" role="alert"></p>
       <ul class="profile-list">
         <li th:each="profile : ${profiles}"><strong th:text="${profile.label()}"></strong>
-          <a th:href="@{/check/all(profile=${profile.id()})}">Run check <span aria-hidden="true">→</span></a></li>
+          <a th:href="@{/check/all(profile=${profile.id()})}">Run check</a></li>
       </ul>
       <form th:action="@{/dashboard/profiles}" method="post" class="profile-add">
         <label for="name">New profile name</label>
@@ -30,7 +30,7 @@
           <p th:text="${item.profile() + ' · ' + item.formattedDate()}"></p>
           </div><span class="status small" th:classappend="${item.verdict().style()}" th:text="${item.verdict().label()}"></span></li>
       </ol>
-      <a th:if="${nextPage != null}" th:href="@{/dashboard(before=${nextPage})}">Older assessments →</a>
+      <a th:if="${nextPage != null}" th:href="@{/dashboard(before=${nextPage})}">Older assessments</a>
     </section>
   </div>
 </main>

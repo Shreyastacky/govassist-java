@@ -56,7 +56,22 @@ public class EligibilityEngine {
         public Check { terms = terms == null ? List.of() : List.copyOf(terms); }
     }
     public record Result(String slug, String title, int version, Verdict verdict, List<Check> checks,
-                         List<String> missing, Map<String, String> answers) {}
+                         List<String> missing, Map<String, String> answers) {
+        public Counts counts() {
+            int met = 0;
+            int unmet = 0;
+            int unanswered = 0;
+            for (Check check : checks) {
+                switch (check.state()) {
+                    case PASS -> met++;
+                    case FAIL -> unmet++;
+                    case UNKNOWN -> unanswered++;
+                }
+            }
+            return new Counts(met, unmet, unanswered);
+        }
+    }
+    public record Counts(int met, int unmet, int unanswered) {}
     public record Input(Map<String, String> answers, Map<String, String> errors) {}
 
     public Input validate(List<Catalog.Question> questions, Map<String, String> submitted) {

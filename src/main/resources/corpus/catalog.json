@@ -2,6 +2,7 @@
   "questions": [
     {
       "key": "applicant_type",
+      "topic": "BUSINESS",
       "ask": "Are you applying for your own business, on your own?",
       "label": "Applying on your own",
       "help": "Choose this if the business is yours. Groups, cooperatives and companies apply a different way.",
@@ -26,6 +27,7 @@
     },
     {
       "key": "is_existing_micro_food_processing_unit",
+      "topic": "BUSINESS",
       "ask": "Do you already make, process or pack food to sell?",
       "label": "Already making food to sell",
       "help": "For example: grinding flour, making pickles or papad, pressing oil, packing spices, a small bakery or dairy. It counts even if it is small or run from home.",
@@ -50,6 +52,7 @@
     },
     {
       "key": "identified_in_slup_or_verified",
+      "topic": "BUSINESS",
       "ask": "Is your business listed for the district’s chosen food product, or has the scheme’s local officer verified it in person?",
       "label": "Listed or verified",
       "help": "Either route counts. The district plan lists units for its chosen product. The scheme’s resource person can also verify a unit in person.",
@@ -74,6 +77,7 @@
     },
     {
       "key": "is_unincorporated",
+      "topic": "BUSINESS",
       "ask": "Do you run the business yourself or with family, rather than as a registered company?",
       "label": "Not a registered company",
       "help": "Most small businesses are like this. Answer yes if you have not registered a private limited company.",
@@ -98,6 +102,7 @@
     },
     {
       "key": "worker_count",
+      "topic": "BUSINESS",
       "ask": "How many people work in your business?",
       "label": "People working",
       "help": "Count everyone who works there, including yourself and any family members who help.",
@@ -122,6 +127,7 @@
     },
     {
       "key": "has_enterprise_ownership_right",
+      "topic": "BUSINESS",
       "ask": "Is the business yours?",
       "label": "Business is yours",
       "help": "Answer yes if you own it, alone or as a partner. Answer no if you work in someone else's business.",
@@ -146,6 +152,7 @@
     },
     {
       "key": "age",
+      "topic": "PERSONAL",
       "ask": "How old are you in completed years?",
       "label": "Your age",
       "help": "",
@@ -167,6 +174,7 @@
     },
     {
       "key": "passed_class_8",
+      "topic": "PERSONAL",
       "ask": "Have you passed class 8 or a higher class?",
       "label": "Passed class 8",
       "help": "Answer yes if you passed class 8 or a higher class.",
@@ -191,6 +199,7 @@
     },
     {
       "key": "family_member_already_received_assistance",
+      "topic": "BUSINESS",
       "ask": "Has anyone in your family already taken money from this scheme?",
       "label": "Family already took this help",
       "help": "Only one person per family can get help. Family here means you, your husband or wife, and your children.",
@@ -215,6 +224,7 @@
     },
     {
       "key": "will_formalize",
+      "topic": "BUSINESS",
       "ask": "Are you willing to register your business officially?",
       "label": "Willing to register",
       "help": "Registering makes the business formal on paper. Help with this is part of the scheme.",
@@ -239,6 +249,7 @@
     },
     {
       "key": "own_contribution_percent",
+      "topic": "BUSINESS",
       "ask": "What share of the total cost can you pay yourself?",
       "label": "Share you can pay",
       "help": "You need to put in at least 10 out of every 100 rupees of the project cost. A bank loan can cover most of the rest.",
@@ -263,6 +274,7 @@
     },
     {
       "key": "will_take_bank_loan",
+      "topic": "BUSINESS",
       "ask": "Are you willing to take a bank loan for the rest of the cost?",
       "label": "Willing to take a loan",
       "help": "The scheme pays part of the cost as a subsidy. A bank loan usually covers the remainder.",
@@ -287,6 +299,7 @@
     },
     {
       "key": "has_bank_or_post_office_account",
+      "topic": "FINANCES",
       "ask": "Do you have your own bank or Post office account?",
       "label": "Has a bank or Post office account",
       "help": "The yearly fee is taken from this account. A joint or family member's account does not count.",
@@ -311,6 +324,7 @@
     },
     {
       "key": "consents_to_auto_debit",
+      "topic": "FINANCES",
       "ask": "Are you willing to let the bank take the yearly fee from your account automatically?",
       "label": "Agrees to automatic fee payment",
       "help": "This is called auto-debit. You sign a form at the bank once, and the fee is taken every year.",
@@ -335,6 +349,7 @@
     },
     {
       "key": "is_indian_citizen",
+      "topic": "PERSONAL",
       "ask": "Are you a citizen of India?",
       "label": "Indian citizen",
       "help": "",
@@ -356,6 +371,7 @@
     },
     {
       "key": "has_savings_bank_account",
+      "topic": "FINANCES",
       "ask": "Do you have a savings account in a bank?",
       "label": "Has a savings bank account",
       "help": "The monthly payment is taken from this account.",
@@ -380,6 +396,7 @@
     },
     {
       "key": "ever_paid_income_tax",
+      "topic": "FINANCES",
       "ask": "Have you ever paid income tax?",
       "label": "Has paid income tax",
       "help": "Income tax is the tax on earnings that people with higher income file every year. Most farmers and daily workers do not pay it.",
@@ -404,6 +421,7 @@
     },
     {
       "key": "paid_income_tax_last_year",
+      "topic": "FINANCES",
       "ask": "Did you pay income tax last year?",
       "label": "Paid income tax last year",
       "help": "Income tax is the tax on earnings that people with higher income file every year. Most farmers do not pay it.",
@@ -428,6 +446,7 @@
     },
     {
       "key": "owns_cultivable_land",
+      "topic": "WORK",
       "ask": "Do you own farmland in your name?",
       "label": "Owns farmland",
       "help": "The land must be in the government land records in your name. Land you only rent or farm for someone else does not count.",
@@ -452,6 +471,7 @@
     },
     {
       "key": "land_hectares",
+      "topic": "WORK",
       "ask": "How much cultivable land do you own, in hectares?",
       "label": "Land owned",
       "help": "1 hectare is about 2.5 acres. So 2 hectares is about 5 acres.",
@@ -476,6 +496,7 @@
     },
     {
       "key": "in_other_pension_or_social_security_scheme",
+      "topic": "FINANCES",
       "ask": "Are you already in another pension fund, like NPS, PF (EPFO), ESIC, PM-SYM or PM-LVM?",
       "label": "Already in another pension fund",
       "help": "PF and ESIC are usually deducted from the salary of factory or office workers. NPS, PM-SYM and PM-LVM are other government pension plans.",
@@ -500,6 +521,7 @@
     },
     {
       "key": "is_institutional_landholder",
+      "topic": "WORK",
       "ask": "Is the land owned by a trust, company or organisation rather than a person?",
       "label": "Land owned by an organisation",
       "help": "",
@@ -521,6 +543,7 @@
     },
     {
       "key": "holds_or_held_public_office",
+      "topic": "WORK",
       "ask": "Are you now, or were you ever, a minister, MP, MLA, mayor or district panchayat head?",
       "label": "Holds or held a high public post",
       "help": "This also covers constitutional posts such as judges and governors. Village sarpanch is not in this list.",
@@ -545,6 +568,7 @@
     },
     {
       "key": "is_government_employee",
+      "topic": "WORK",
       "ask": "Do you work, or did you retire, as a government or public sector employee?",
       "label": "Government employee",
       "help": "Peons, helpers and other Group D or Class IV staff are not counted here, so answer No if that was your job.",
@@ -569,6 +593,7 @@
     },
     {
       "key": "is_practising_professional",
+      "topic": "WORK",
       "ask": "Do you work as a registered doctor, engineer, lawyer, chartered accountant or architect?",
       "label": "Practising professional",
       "help": "",
@@ -590,6 +615,7 @@
     },
     {
       "key": "is_street_vendor",
+      "topic": "WORK",
       "ask": "Do you sell things or services on the street, footpath or market for a living?",
       "label": "Street vendor",
       "help": "For example: a vegetable or fruit cart, tea or food stall, cobbler, barber, or selling while moving from place to place.",
@@ -614,6 +640,7 @@
     },
     {
       "key": "vends_in_town_or_peri_urban",
+      "topic": "WORK",
       "ask": "Do you sell in a town or city, or in an area next to one?",
       "label": "Sells in a town or near one",
       "help": "This scheme is for towns and the areas around them, not for villages far from a town.",
@@ -638,6 +665,7 @@
     },
     {
       "key": "household_is_bpl",
+      "topic": "PERSONAL",
       "ask": "Is your household poor, below the poverty line (BPL)?",
       "label": "Poor (BPL) household",
       "help": "Even if your name is not on the BPL list, you should not be left out. The panchayat can check your case.",
@@ -662,6 +690,7 @@
     },
     {
       "key": "is_woman",
+      "topic": "PERSONAL",
       "ask": "Is the person applying a woman?",
       "label": "Woman",
       "help": "Some schemes, like the free gas connection, are given only in a woman's name.",
@@ -686,6 +715,7 @@
     },
     {
       "key": "household_has_lpg_or_png",
+      "topic": "PERSONAL",
       "ask": "Does your household currently have a government oil company LPG connection or domestic piped gas?",
       "label": "Home already has gas",
       "help": "Household means family members on the family composition document who live together and share a kitchen.",
@@ -710,6 +740,7 @@
     },
     {
       "key": "will_give_deprivation_declaration",
+      "topic": "PERSONAL",
       "ask": "Will you fill in a form saying your household is poor, and let officials check it?",
       "label": "Will give the poverty declaration",
       "help": "This is called the Deprivation Declaration. Officials may visit your home to check it.",
@@ -734,6 +765,7 @@
     },
     {
       "key": "resides_in_india",
+      "topic": "PERSONAL",
       "ask": "Do you live in India?",
       "label": "Lives in India",
       "help": "",
@@ -755,6 +787,7 @@
     },
     {
       "key": "household_previously_had_gas",
+      "topic": "PERSONAL",
       "ask": "Has anyone in your household previously had a government oil company LPG connection or domestic piped gas?",
       "label": "Previous household connection",
       "help": "Include people on the family composition document who live together and share a kitchen.",
@@ -776,6 +809,7 @@
     },
     {
       "key": "local_scheme_coverage_confirmed",
+      "topic": "WORK",
       "ask": "According to your local authority, is the place where you sell covered by PM SVANidhi?",
       "label": "Local coverage",
       "help": "Answer yes if coverage is confirmed. If you have not checked with the local authority, skip this question. Answer no only if it confirmed your area is outside coverage.",

@@ -1,6 +1,7 @@
 package in.edu.thapar.govassist;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,24 +34,45 @@ public class PortalController {
     private final AccountRepository accounts;
     private final AssessmentRepository assessments;
     private final PasswordEncoder passwords;
+    private final RuleLab ruleLab;
 
     public PortalController(Catalog catalog, EligibilityEngine engine, AccountRepository accounts,
-                            AssessmentRepository assessments, PasswordEncoder passwords) {
+                            AssessmentRepository assessments, PasswordEncoder passwords, RuleLab ruleLab) {
         this.catalog = catalog;
         this.engine = engine;
         this.accounts = accounts;
         this.assessments = assessments;
         this.passwords = passwords;
+        this.ruleLab = ruleLab;
     }
 
     @GetMapping("/")
-    String index(@RequestParam(defaultValue = "") String q, Model model) {
-        String query = q.strip().toLowerCase(Locale.ROOT);
-        model.addAttribute("query", q.strip());
-        model.addAttribute("schemes", catalog.schemes().stream()
-                .filter(scheme -> (scheme.title() + " " + scheme.name() + " " + scheme.category())
-                        .toLowerCase(Locale.ROOT).contains(query)).toList());
+    String index(@RequestParam(defaultValue = "") String q, @RequestParam(defaultValue = "") String category,
+                 Model model) {
+        String query = q.strip();
+        if (query.length() > 100) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        var categories = catalog.categories();
+        String selected = categories.stream().map(Catalog.Category::name)
+                .filter(name -> name.equalsIgnoreCase(category.strip())).findFirst().orElse("");
+        model.addAttribute("query", query);
+        model.addAttribute("categories", categories);
+        model.addAttribute("selectedCategory", selected);
+        model.addAttribute("schemeCount", catalog.schemes().size());
+        model.addAttribute("schemes", catalog.search(query, selected));
+        model.addAttribute("examples", ruleLab.boundaryExamples());
         return "index";
+    }
+
+    @GetMapping("/lab")
+    String lab(@RequestParam(required = false) String age, HttpServletResponse response, Model model) {
+        var example = ruleLab.evaluate(age == null ? "18" : age.strip());
+        if (example.error() != null) {
+            response.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
+        }
+        model.addAttribute("example", example);
+        return "rule-lab";
     }
 
     @GetMapping("/sources")
@@ -208,8 +230,9 @@ public class PortalController {
     }
 
     @ModelAttribute
-    void defaults(Principal principal, Model model) {
+    void defaults(Principal principal, HttpServletRequest request, Model model) {
         model.addAttribute("signedIn", principal != null);
+        model.addAttribute("pagePath", request.getServletPath().isEmpty() ? request.getRequestURI() : request.getServletPath());
         model.addAttribute("saved", false);
         model.addAttribute("snapshot", false);
         model.addAttribute("register", false);
@@ -261,7 +284,9 @@ public class PortalController {
                         Map<String, String> errors, Model model) {
         model.addAttribute("slug", slug);
         model.addAttribute("scheme", schemes.size() == 1 ? schemes.get(0) : null);
-        model.addAttribute("questions", catalog.questionsFor(schemes));
+        var questions = catalog.questionsFor(schemes);
+        model.addAttribute("questionCount", questions.size());
+        model.addAttribute("sections", catalog.sections(questions, schemes.size() > 1));
         model.addAttribute("answers", answers);
         model.addAttribute("errors", errors);
         return "check";
